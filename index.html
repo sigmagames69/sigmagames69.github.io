@@ -5,6 +5,27 @@
 </head>
 
   <body>
-    
+    <br>
+         <span id="a"></span>
+    <h1>Here we have seletion of popular unnlocked games, ad free!</h1>
   </body>
+  <script>
+  document.getElementById("a");
+  let today = new Date();
+  let hourNow = today.getHours();
+  let greeting;
+
+  if (hourNow > 18) {
+      greeting = 'Good evening!';
+  } else if (hourNow > 12) {
+      greeting = 'Good afternoon!';
+  } else if (hourNow > 0) {
+      greeting = 'Good morning!';
+  } else {
+      greeting = 'Hello';
+  }
+
+  document.write('<h1>' + greeting + " and welcome to sigma games" + '</h1>');
+    
+  </script>
 </html>
