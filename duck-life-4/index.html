@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duck Life 3</title>
     <link rel="icon" type="image/png" href="https://img.poki.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/d0048d89-e4fa-4adb-9c77-adc51e4e1c6b.png">
     <style>
@@ -11,6 +13,7 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
+            background-color: #f0f0f0; /* Optional: adding a background color */
         }
         
         .fullscreenBtn {
@@ -19,11 +22,15 @@
             cursor: pointer;
         }
         
+        object {
+            max-width: 100%; /* Ensures the object scales correctly */
+            max-height: 100%; /* Ensures the object scales correctly */
+        }
     </style>
 </head>
 <body>
 
-    <object type="application/x-shockwave-flash" data="https://joercat.github.io/flash/dl3/game.swf" width="50%" height="80%">
+    <object id="flashObject" type="application/x-shockwave-flash" data="https://joercat.github.io/flash/dl3/game.swf" width="80%" height="80%">
         <param name="movie" value="https://joercat.github.io/flash/dl3/game.swf" />
         You need a more recent version of <a href="https://get.adobe.com/flashplayer/">Adobe Flash Player</a>.
     </object>
@@ -35,7 +42,7 @@
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
     <script>
         function goFullscreen() {
-            const gameObject = document.querySelector('object');
+            const gameObject = document.getElementById('flashObject');
             if (gameObject.requestFullscreen) {
                 gameObject.requestFullscreen();
             } else if (gameObject.mozRequestFullScreen) {
