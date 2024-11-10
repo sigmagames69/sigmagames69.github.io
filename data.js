@@ -1,0 +1,32 @@
+    const data = [
+      { name: "Retro Bowl", url: "retro-bowl", query: "retro bowl" },
+      { name: "Retro Bowl", url: "retro-bowl", query: "retro bowl college" },
+      
+      { name: "Balloons TD 1", url: "balloons-td-1", query: "balloons td" },
+      { name: "Balloons TD 2", url: "balloons-td-2", query: "balloons td" },
+      { name: "Balloons TD 3", url: "balloons-td-3", query: "balloons td" },
+      { name: "Balloons TD 4", url: "balloons-td-4", query: "balloons td" },
+      { name: "Balloons TD 4 expansion", url: "balloons-td-4e", query: "balloons td" },
+      { name: "Balloons TD 5", url: "balloons-td-5", query: "balloons td" },
+      { name: "Balloons TD 1", url: "balloons-td-1", query: "balloons td 1" },
+      { name: "Balloons TD 2", url: "balloons-td-2", query: "balloons td 2" },
+      { name: "Balloons TD 3", url: "balloons-td-3", query: "balloons td 3" },
+      { name: "Balloons TD 4", url: "balloons-td-4", query: "balloons td 4" },
+      { name: "Balloons TD 4 expansion", url: "balloons-td-4e", query: "balloons td 4 expansion" },
+      { name: "Balloons TD 4 expansion", url: "balloons-td-4e", query: "balloons td 4e" },
+      { name: "Balloons TD 5", url: "balloons-td-5", query: "balloons td 5" },
+
+      { name: "Duck Life 1", url: "duck-life-1", query: "duck life" },
+      { name: "Duck Life 2", url: "duck-life-2", query: "duck life" },
+      { name: "Duck Life 3", url: "duck-life-3", query: "duck life" },
+      { name: "Duck Life 4", url: "duck-life-4", query: "duck life" },
+      { name: "Duck Life 1", url: "duck-life-1", query: "duck life 1" },
+      { name: "Duck Life 2", url: "duck-life-2", query: "duck life 2" },
+      { name: "Duck Life 3", url: "duck-life-3", query: "duck life 3" },
+      { name: "Duck Life 4", url: "duck-life-4", query: "duck life 4" },
+
+      { name: "Super Mario bros.", url: "super-mario", query: "mario" },
+      { name: "Super Mario bros.", url: "super-mario", query: "super mario" },
+      { name: "Super Mario bros.", url: "super-mario", query: "super mario bros" },
+      { name: "Super Mario bros.", url: "super-mario", query: "super mario brothers" },
+    ];
