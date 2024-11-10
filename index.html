@@ -3,10 +3,26 @@
 <head>
   <title>Sigma Games</title>
   <style>
+    body {
+        margin: 0;
+        background-color: black;
+        color: #39FF14;
+        font-family: Arial, sans-serif;
+    }
+    header {
+        background-color: grey;
+        color: #39FF14;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
     .search-container {
         position: relative;
         width: 300px;
-        margin: 20px;
+        margin: 10px;
     }
 
     .search-bar {
@@ -42,24 +58,19 @@
 </head>
 
 <body>
-  <center>
-    <header>
-
-  <div class="search-container">
-    <input type="text" class="search-bar" id="searchBar" placeholder="Search..." oninput="handleSearch()">
-    <div class="results-container" id="resultsContainer"></div>
-  </div>
-      
-    </header>
-    <br>
-    <div id="a"></div>
-    <h1>Here we have a selection of popular unlocked games, ad-free!</h1>
+  <header>
+    <div class="search-container">
+      <input type="text" class="search-bar" id="searchBar" placeholder="Search free games" oninput="handleSearch()">
+      <div class="results-container" id="resultsContainer"></div>
+    </div>
+  </header>
+<center>
+  <div id="a"></div>
+    <h2>Here we have a selection of popular unlocked games, ad-free!</h2>
   </center>
-
 
   <script src="data.js"></script>
   <script>
-
     function handleSearch() {
       const input = document.getElementById('searchBar').value.toLowerCase();
       const resultsContainer = document.getElementById('resultsContainer');
@@ -103,7 +114,7 @@
         greeting = 'Hello';
     }
 
-    place.innerHTML = '<h1>' + greeting + " and welcome to Sigma Games" + '</h1>';
+    place.innerHTML = '<h2>' + greeting + " and welcome to Sigma Games." + '</h2>';
   </script>
 </body>
 </html>
