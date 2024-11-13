@@ -2,73 +2,178 @@
 <html>
 <head>
   <title>Sigma Games</title>
+  <link rel="icon" src="img/favicon.png">
   <style>
     body {
-        margin: 0;
-        background-color: black;
-        color: #39FF14;
-        font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #121212;
+      color: #39FF14;
+      font-family: 'Roboto', Arial, sans-serif;
     }
     header {
-        background-color: grey;
-        color: #39FF14;
-        width: 100vw;
-        height: 100px; /* Adjust the height as needed */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+      background-color: #1e1e1e;
+      padding: 20px;
+      text-align: center;
+      color: #39FF14;
+      border-bottom: 2px solid #39FF14;
     }
     .search-container {
-        position: relative;
-        width: 300px;
-        margin: 10px;
+      position: relative;
+      width: 500px;
+      margin: 10px auto;
     }
-
     .search-bar {
-        width: 100%;
-        padding: 8px;
-        box-sizing: border-box;
-        font-size: 16px;
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #39FF14;
+      border-radius: 4px;
+      background-color: #1e1e1e;
+      color: #39FF14;
     }
-
+    .search-bar:focus {
+      outline: none;
+      border: 2px solid #55ff33;
+    }
     .results-container {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: white;
-        border: 1px solid #ccc;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        display: none;
-        z-index: 10;
-        max-height: 200px;
-        overflow-y: auto;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      color: #000;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      display: none;
+      z-index: 10;
+      max-height: 200px;
+      overflow-y: auto;
     }
-
     .result-item {
-        padding: 8px;
-        cursor: pointer;
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 1px solid #ccc;
     }
-
     .result-item:hover {
-        background-color: #f0f0f0;
+      background-color: #e0e0e0;
+    }
+    .main-content {
+      padding: 20px;
+      text-align: center;
+    }
+    .greeting-message {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #55ff33;
+    }
+    .game-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .game-card {
+      background-color: #1e1e1e;
+      border: 2px solid #39FF14;
+      border-radius: 8px;
+      width: 300px;
+      padding: 15px;
+      color: #39FF14;
+      text-align: left;
+      transition: transform 0.3s;
+    }
+    .game-card:hover {
+      transform: translateY(-5px);
+      border-color: #55ff33;
+    }
+    .game-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .game-card h3 {
+      margin: 10px 0;
+      font-size: 20px;
+    }
+    .game-card p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+    .game-card a {
+      text-decoration: none;
+      color: #55ff33;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #1e1e1e;
+      color: #39FF14;
+      padding: 10px;
+      text-align: center;
+      border-top: 2px solid #39FF14;
+      margin-top: 20px;
     }
   </style>
 </head>
 
 <body>
   <header>
+    <h1>Sigma Games</h1>
     <div class="search-container">
-      <input type="text" class="search-bar" id="searchBar" placeholder="Search..." oninput="handleSearch()">
+      <input type="text" class="search-bar" id="searchBar" placeholder=" Search our free games and services..." oninput="handleSearch()">
       <div class="results-container" id="resultsContainer"></div>
     </div>
   </header>
 
-  <div id="a"></div>
-  <center>
-    <h1>Here we have a selection of popular unlocked games, ad-free!</h1>
-  </center>
+  <div class="main-content">
+    <div id="a" class="greeting-message"></div>
+    <p>Here at Sigma Games we are dedicated to providing you with the latest games, search browsers and other free services.</p><p>  This site will always be no-cost and ad-free so the games are free to use without random ad breaks.</p>
+<br>
+    <h2>Popular Unblocked Games</h2>
+    <div class="game-cards">
+      <div class="game-card">
+        <img src="img/rb.png" alt="Retro Bowl">
+        <h3>Retro Bowl</h3>
+        <p>The perfect game for the armchair quarterback to finally prove a point. Presented in a glorious retro style, the game has simple roster management.</p>
+        <a href="retro-bowl" target="_blank">Play Now</a>
+      </div>
+      <div class="game-card">
+        <img src="img/ss.jpeg" alt="Subway Surfers">
+        <h3>Subway Surfers</h3>
+        <p>Subway Surfers is a 2012 endless runner mobile game which is co-developed by Kiloo and SYBO Games, private companies based in Denmark</p>
+        <a href="subway-surfers" target="_blank">Play Now</a>
+      </div>
+      <div class="game-card">
+        <img src="https://via.placeholder.com/300x150" alt="Game 3">
+        <h3>Snow Rider 3D</h3>
+        <p>Test your skills in Game 3 with unique challenges and countless hours of fun.</p>
+        <a href="snow-rider-3d" target="_blank">Play Now</a>
+      </div>
+      </div>
+      <br>
+
+  <!--  <h2>Popular free Services</h2>
+    <div class="game-cards">
+      <div class="game-card">
+        <img src="https://via.placeholder.com/300x150" alt="Service 1">
+        <h3>Service 1</h3>
+        <p>Experience the thrill and excitement of Game 1, where your reflexes will be tested to the limit!</p>
+        <a href="#" target="_blank">Use for free</a>
+      </div>
+      <div class="game-card">
+        <img src="https://via.placeholder.com/300x150" alt="Service 2">
+        <h3>Service 2</h3>
+        <p>Dive into the strategic world of Game 2 and outsmart your opponents in this exciting challenge!</p>
+        <a href="#" target="_blank">Use for free</a>
+      </div>
+      <div class="game-card">
+        <img src="https://via.placeholder.com/300x150" alt="Service 3">
+        <h3>Service 3</h3>
+        <p>Test your skills in Game 3 with unique challenges and countless hours of fun.</p>
+        <a href="#" target="_blank">Use for free</a>
+    </div>
+  </div> -->
+
 
   <script src="data.js"></script>
   <script>
@@ -76,28 +181,25 @@
       const input = document.getElementById('searchBar').value.toLowerCase();
       const resultsContainer = document.getElementById('resultsContainer');
       resultsContainer.innerHTML = '';
-
       if (input.trim() === '') {
-          resultsContainer.style.display = 'none';
-          return;
+        resultsContainer.style.display = 'none';
+        return;
       }
-
-      // Filter data based on lowercase comparison of 'query' property
       const filteredResults = data.filter(item => item.query.toLowerCase().includes(input));
       if (filteredResults.length > 0) {
-          resultsContainer.style.display = 'block';
-          filteredResults.forEach(item => {
-              const resultItem = document.createElement('div');
-              resultItem.textContent = item.name;
-              resultItem.classList.add('result-item');
-              resultItem.onclick = () => {
-                  window.open(item.url, '_blank');
-                  resultsContainer.style.display = 'none';
-              };
-              resultsContainer.appendChild(resultItem);
-          });
+        resultsContainer.style.display = 'block';
+        filteredResults.forEach(item => {
+          const resultItem = document.createElement('div');
+          resultItem.textContent = item.name;
+          resultItem.classList.add('result-item');
+          resultItem.onclick = () => {
+            window.open(item.url, '_blank');
+            resultsContainer.style.display = 'none';
+          };
+          resultsContainer.appendChild(resultItem);
+        });
       } else {
-          resultsContainer.style.display = 'none';
+        resultsContainer.style.display = 'none';
       }
     }
 
@@ -105,18 +207,16 @@
     let today = new Date();
     let hourNow = today.getHours();
     let greeting;
-
     if (hourNow > 18) {
-        greeting = 'Good evening!';
+      greeting = 'Good evening!';
     } else if (hourNow > 12) {
-        greeting = 'Good afternoon!';
+      greeting = 'Good afternoon!';
     } else if (hourNow > 0) {
-        greeting = 'Good morning!';
+      greeting = 'Good morning!';
     } else {
-        greeting = 'Hello';
+      greeting = 'Hello';
     }
-
-    place.innerHTML = '<h1>' + greeting + " and welcome to Sigma Games." + '</h1>';
+    place.innerHTML = '<span>' + greeting + ' and welcome to Sigma Games!</span>';
   </script>
 </body>
 </html>
