@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tunnel Rush</title>
+    <link rel="icon" type="image/png" href="https://joercat.github.io/img/theunblockedcatfavicon.png">
+    <link href="https://cdn.jsdelivr.net/gh/hyperwood/h4tfgh7@c4d52c61c545cc2d537d647ee6a882856d9baf34/style.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-color: black; 
+        }
+
+        #gameContainer {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0; 
+            left: 0;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/hyperwood/h4tfgh7@c4d52c61c545cc2d537d647ee6a882856d9baf34/UnityProgress.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hyperwood/h4tfgh7@c4d52c61c545cc2d537d647ee6a882856d9baf34/unityloader49.js"></script>
+</head>
+<body>
+    <div class="webgl-content">
+        <div id="gameContainer"></div>
+    </div>
+    <script>
+        let gameInstance = UnityLoader.instantiate("gameContainer", 
+        "https://cdn.jsdelivr.net/gh/hyperwood/h4tfgh7@c4d52c61c545cc2d537d647ee6a882856d9baf34/tunnel-rush_v9.json", 
+        {onProgress: UnityProgress, Module: {onRuntimeInitialized: function() {UnityProgress(gameInstance, "complete")}}});
+    </script>
+    <script src="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/addc4348-16c2-4645-9dff-f99b962e39ef%2Fscr.js"></script>
+</body>
+</html>
