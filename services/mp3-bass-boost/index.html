@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Audio Bass Booster</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        input, button {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>MP3 Audio Bass Booster</h1>
+    <input type="file" id="audioFile" accept="audio/mp3">
+    <br>
+    <button id="playButton" disabled>Play</button>
+    <button id="stopButton" disabled>Stop</button>
+    <button id="downloadButton" disabled>Download Boosted Audio</button>
+    <br>
+    <label for="bassBoost">Bass Boost:</label>
+    <input type="range" id="bassBoost" min="0" max="100" value="0" step="1">
+    <span id="bassBoostValue">0 dB</span>
+
+    <script>
+let audioContext;
+let source;
+let gainNode;
+let biquadFilter;
+let audioBuffer;
+
+const audioFileInput = document.getElementById('audioFile');
+const playButton = document.getElementById('playButton');
+const stopButton = document.getElementById('stopButton');
+const downloadButton = document.getElementById('downloadButton');
+const bassBoostSlider = document.getElementById('bassBoost');
+const bassBoostValue = document.getElementById('bassBoostValue');
+
+audioFileInput.addEventListener('change', handleFileSelect);
+playButton.addEventListener('click', playAudio);
+stopButton.addEventListener('click', stopAudio);
+downloadButton.addEventListener('click', downloadBoostedAudio);
+bassBoostSlider.addEventListener('input', updateBassBoost);
+
+function handleFileSelect(event) {
+    const file = event.target.files[0];
+    playButton.disabled = !file;
+    downloadButton.disabled = !file;
+}
+
+async function playAudio() {
+    const file = audioFileInput.files[0];
+    if (!file) return;
+
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    if (source) {
+        source.stop();
+    }
+
+    const arrayBuffer = await file.arrayBuffer();
+    audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+
+    source = audioContext.createBufferSource();
+    source.buffer = audioBuffer;
+
+    biquadFilter = audioContext.createBiquadFilter();
+    biquadFilter.type = 'lowshelf';
+    biquadFilter.frequency.value = 200;
+    biquadFilter.gain.value = bassBoostSlider.value;
+
+    gainNode = audioContext.createGain();
+    gainNode.gain.value = 1;
+
+    source.connect(biquadFilter);
+    biquadFilter.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+
+    source.start(0);
+    playButton.disabled = true;
+    stopButton.disabled = false;
+}
+
+function stopAudio() {
+    if (source) {
+        source.stop();
+        playButton.disabled = false;
+        stopButton.disabled = true;
+    }
+}
+
+function updateBassBoost() {
+    const boostValue = bassBoostSlider.value;
+    bassBoostValue.textContent = `${boostValue} dB`;
+    if (biquadFilter) {
+        biquadFilter.gain.value = boostValue;
+    }
+}
+
+async function downloadBoostedAudio() {
+    if (!audioBuffer) return;
+
+    const offlineContext = new OfflineAudioContext(
+        audioBuffer.numberOfChannels,
+        audioBuffer.length,
+        audioBuffer.sampleRate
+    );
+
+    const source = offlineContext.createBufferSource();
+    source.buffer = audioBuffer;
+
+    const biquadFilter = offlineContext.createBiquadFilter();
+    biquadFilter.type = 'lowshelf';
+    biquadFilter.frequency.value = 200;
+    biquadFilter.gain.value = bassBoostSlider.value;
+
+    source.connect(biquadFilter);
+    biquadFilter.connect(offlineContext.destination);
+
+    source.start(0);
+
+    const renderedBuffer = await offlineContext.startRendering();
+
+    const wav = audioBufferToWav(renderedBuffer);
+    const blob = new Blob([wav], { type: 'audio/wav' });
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = 'boosted_audio.wav';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+// Helper function to convert AudioBuffer to WAV format
+function audioBufferToWav(buffer) {
+    const numChannels = buffer.numberOfChannels;
+    const sampleRate = buffer.sampleRate;
+    const format = 1; // PCM
+    const bitDepth = 16;
+
+    const bytesPerSample = bitDepth / 8;
+    const blockAlign = numChannels * bytesPerSample;
+
+    const bufferLength = buffer.length;
+    const byteRate = sampleRate * blockAlign;
+    const dataSize = bufferLength * blockAlign;
+
+    const headerSize = 44;
+    const wavSize = headerSize + dataSize;
+
+    const wav = new ArrayBuffer(wavSize);
+    const view = new DataView(wav);
+
+    // Write WAV header
+    writeString(view, 0, 'RIFF');
+    view.setUint32(4, 36 + dataSize, true);
+    writeString(view, 8, 'WAVE');
+    writeString(view, 12, 'fmt ');
+    view.setUint32(16, 16, true);
+    view.setUint16(20, format, true);
+    view.setUint16(22, numChannels, true);
+    view.setUint32(24, sampleRate, true);
+    view.setUint32(28, byteRate, true);
+    view.setUint16(32, blockAlign, true);
+    view.setUint16(34, bitDepth, true);
+    writeString(view, 36, 'data');
+    view.setUint32(40, dataSize, true);
+
+    // Write audio data
+    const offset = 44;
+    for (let i = 0; i < bufferLength; i++) {
+        for (let channel = 0; channel < numChannels; channel++) {
+            const sample = buffer.getChannelData(channel)[i];
+            const scaled = Math.max(-1, Math.min(1, sample));
+            const int16 = scaled < 0 ? scaled * 0x8000 : scaled * 0x7FFF;
+            view.setInt16(offset + (i * blockAlign) + (channel * bytesPerSample), int16, true);
+        }
+    }
+
+    return wav;
+}
+
+function writeString(view, offset, string) {
+    for (let i = 0; i < string.length; i++) {
+        view.setUint8(offset + i, string.charCodeAt(i));
+    }
+}
+
+</script>
+</body>
+</html>
