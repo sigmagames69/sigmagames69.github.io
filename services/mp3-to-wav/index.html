@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title>The Audio Converting Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+          
+        }
+        h2 {
+            color: black;
+        }
+      h4 {
+color: red;
+      }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+          height: 25px;
+            cursor: pointer;
+           background-color: black;
+          color: #39FF14;
+        }
+       button:active {
+background-color: black;
+         color: #39FF14;
+        }
+    </style>
+</head>
+<body>
+    <h2>MP3 to WAV Converter</h2>
+    <input type="file" id="inputFile" accept=".mp3" />
+    <button id="convertButton"><h4>Convert to WAV</h4></button>
+    <a id="downloadLink" style="display:none;">Download WAV</a>
+    
+    <script>
+        document.getElementById('convertButton').addEventListener('click', async () => {
+            const inputFile = document.getElementById('inputFile').files[0];
+            if (!inputFile) {
+                alert('Please select an MP3 file first.');
+                return;
+            }
+
+            const arrayBuffer = await inputFile.arrayBuffer();
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+            const wavBuffer = audioBufferToWav(audioBuffer);
+
+            const blob = new Blob([wavBuffer], { type: 'audio/wav' });
+            const url = URL.createObjectURL(blob);
+            
+            const downloadLink = document.getElementById('downloadLink');
+            downloadLink.href = url;
+            downloadLink.download = inputFile.name.replace('.mp3', '.wav');
+            downloadLink.style.display = 'block';
+            downloadLink.innerText = 'Download WAV';
+        });
+
+        function audioBufferToWav(buffer) {
+            let numOfChan = buffer.numberOfChannels,
+                length = buffer.length * numOfChan * 2 + 44,
+                bufferData = new DataView(new ArrayBuffer(length)),
+                channels = [],
+                i,
+                sample,
+                offset = 0,
+                pos = 0;
+
+            function setUint16(data) {
+                bufferData.setUint16(pos, data, true);
+                pos += 2;
+            }
+
+            function setUint32(data) {
+                bufferData.setUint32(pos, data, true);
+                pos += 4;
+            }
+
+            setUint32(0x46464952); // "RIFF" identifier
+            setUint32(length - 8); // file length minus RIFF identifier length and file description
+            setUint32(0x45564157); // "WAVE" identifier
+            setUint32(0x20746d66); // "fmt " chunk identifier
+            setUint32(16); // length of "fmt" chunk
+            setUint16(1); // sample format (raw)
+            setUint16(numOfChan); // channel count
+            setUint32(buffer.sampleRate); // sample rate
+            setUint32(buffer.sampleRate * 2 * numOfChan); // byte rate (sample rate * block align)
+            setUint16(numOfChan * 2); // block align (channel count * bytes per sample)
+            setUint16(16); // bits per sample
+            setUint32(0x61746164); // "data" chunk identifier
+            setUint32(length - pos - 4); // chunk length
+
+            for (i = 0; i < buffer.numberOfChannels; i++)
+                channels.push(buffer.getChannelData(i));
+
+            while (pos < length) {
+                for (i = 0; i < numOfChan; i++) {
+                    sample = Math.max(-1, Math.min(1, channels[i][offset])); // clamp
+                    sample = (0.5 + sample < 0 ? sample * 32768 : sample * 32767) | 0; // scale to 16-bit signed int
+                    bufferData.setInt16(pos, sample, true); // write 16-bit sample
+                    pos += 2;
+                }
+                offset++; // next source sample
+            }
+
+            return bufferData.buffer;
+        }
+    </script>
+</body>
+</html>
