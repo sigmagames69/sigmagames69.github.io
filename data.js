@@ -1,7 +1,10 @@
     const data = [
       { name: "Retro Bowl", url: "retro-bowl", query: "retro bowl" },
       { name: "Retro Bowl", url: "retro-bowl", query: "retro bowl college" },
-      
+
+      { name: "Snow Rider 3D", url: "snow-rider-3d", query: "snow rider 3d" },
+      { name: "Snow Rider 3D", url: "snow-rider-3d", query: "snow rider" },
+
       { name: "Balloons TD 1", url: "balloons-td-1", query: "balloons td" },
       { name: "Balloons TD 2", url: "balloons-td-2", query: "balloons td" },
       { name: "Balloons TD 3", url: "balloons-td-3", query: "balloons td" },
@@ -15,6 +18,19 @@
       { name: "Balloons TD 4 expansion", url: "balloons-td-4e", query: "balloons td 4 expansion" },
       { name: "Balloons TD 4 expansion", url: "balloons-td-4e", query: "balloons td 4e" },
       { name: "Balloons TD 5", url: "balloons-td-5", query: "balloons td 5" },
+      { name: "Balloons TD 1", url: "balloons-td-1", query: "balloons tower defense" },
+      { name: "Balloons TD 2", url: "balloons-td-2", query: "balloons tower defense" },
+      { name: "Balloons TD 3", url: "balloons-td-3", query: "balloons tower defense" },
+      { name: "Balloons TD 4", url: "balloons-td-4", query: "balloons tower defense" },
+      { name: "Balloons TD 4 expansion", url: "balloons-td-4e", query: "balloons tower defense" },
+      { name: "Balloons TD 5", url: "balloons-td-5", query: "balloons tower defense" },
+      { name: "Balloons TD 1", url: "balloons-td-1", query: "balloons tower defense 1" },
+      { name: "Balloons TD 2", url: "balloons-td-2", query: "balloons tower defense 2" },
+      { name: "Balloons TD 3", url: "balloons-td-3", query: "balloons tower defense 3" },
+      { name: "Balloons TD 4", url: "balloons-td-4", query: "balloons tower defense 4" },
+      { name: "Balloons TD 4 expansion", url: "balloons-td-4e", query: "balloons tower defense 4 expansion" },
+      { name: "Balloons TD 4 expansion", url: "balloons-td-4e", query: "balloons tower defense 4e" },
+      { name: "Balloons TD 5", url: "balloons-td-5", query: "balloons tower defense 5" },
 
       { name: "Duck Life 1", url: "duck-life-1", query: "duck life" },
       { name: "Duck Life 2", url: "duck-life-2", query: "duck life" },
@@ -29,4 +45,27 @@
       { name: "Super Mario bros.", url: "super-mario", query: "super mario" },
       { name: "Super Mario bros.", url: "super-mario", query: "super mario bros" },
       { name: "Super Mario bros.", url: "super-mario", query: "super mario brothers" },
+      
+      { name: "Granny", url: "granny", query: "granny" },
+        
+      { name: "Moto Road Rash 3D", url: "moto-road-rash-3d", query: "moto rush" },
+      { name: "Moto Road Rash 3D", url: "moto-road-rash-3d", query: "moto rush 3d" },
+      { name: "Moto Road Rash 3D", url: "moto-road-rash-3d", query: "moto road rash 3d" },
+      { name: "Moto Road Rash 3D", url: "moto-road-rash-3d", query: "moto road rash" },
+      { name: "Moto Road Rash 3D", url: "moto-road-rash-3d", query: "moto road rush 3d" },
+      { name: "Moto Road Rash 3D", url: "moto-road-rash-3d", query: "moto road rush" },
+      { name: "Moto Road Rash 3D", url: "moto-road-rash-3d", query: "motorcycle game" },
+      { name: "Moto Road Rash 3D", url: "moto-road-rash-3d", query: "motorcycle" },
+
+      { name: "Temple Run 2", url: "temple-run-2", query: "temple run" },
+      { name: "Temple Run 2", url: "temple-run-2", query: "temple run 2" },
+      { name: "Temple Run 2", url: "temple-run-2", query: "temple" },
+      { name: "Temple Run 2", url: "temple-run-2", query: "temple rush" },
+
+      { name: "Tunnel Rush", url: "tunnel-rush", query: "tunnel rush" },
+
+      { name: "Subway Surfers", url: "subway-surfers", query: "subway surfers" },
+      { name: "Subway Surfers", url: "subway-surfers", query: "subway surf" },
+      { name: "Subway Surfers", url: "subway-surfers", query: "subway surfer" },
+
     ];
