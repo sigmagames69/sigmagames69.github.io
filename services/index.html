@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sigma Services</title>
+  <link rel="icon" href="img/favicon.png">
+  <style>
+    body {
+      margin: 0;
+      background-color: #121212;
+      color: #39FF14;
+      font-family: 'Roboto', Arial, sans-serif;
+    }
+    header {
+      background-color: #1e1e1e;
+      padding: 20px;
+      text-align: center;
+      color: #39FF14;
+      border-bottom: 2px solid #39FF14; 
+    }
+    .search-container {
+      position: relative;
+      width: 500px;
+      margin: 10px auto;
+    }
+    .search-bar {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #39FF14;
+      border-radius: 4px;
+      background-color: #1e1e1e;
+      color: #39FF14;
+    }
+    .search-bar:focus {
+      outline: none;
+      border: 2px solid #55ff33;
+    }
+    .results-container {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      color: #000;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      display: none;
+      z-index: 10;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .result-item {
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 1px solid #ccc;
+    }
+    .result-item:hover {
+      background-color: #e0e0e0;
+    }
+    .main-content {
+      padding: 20px;
+      text-align: center;
+    }
+    .greeting-message {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #55ff33;
+    }
+    .game-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .game-card {
+      background-color: #1e1e1e;
+      border: 2px solid #39FF14;
+      border-radius: 8px;
+      width: 300px;
+      padding: 15px;
+      color: #39FF14;
+      text-align: left;
+      transition: transform 0.3s;
+    }
+    .game-card:hover {
+      transform: translateY(-5px);
+      border-color: #55ff33;
+    }
+    .game-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .game-card h3 {
+      margin: 10px 0;
+      font-size: 20px;
+    }
+    .game-card p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+    .game-card a {
+      text-decoration: none;
+      color: #55ff33;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Sigma audio services</h1>
+    <div class="search-container">
+      <div class="results-container" id="resultsContainer"></div>
+    </div>
+  </header>
+
+  <div class="main-content">
+
+<h2>Our free audio Services</h2>
+    <div class="game-cards">
+      <div class="game-card" onclick="mp3Boost()">
+        <img src="/img/boost.png" alt="mp3 Bass boost">
+        <h3>mp3 Bass boost</h3>
+        <p>Get any mp3, mp4 and m4a bass boosted for free!</p><br>
+        <a href="mp3-bass-boost" target="_blank">Boost for free</a>
+      </div>
+      <div class="game-card" onclick="mp3Wav()">
+        <img src="/img/mp3wav.png" alt="mp3 to wav">
+        <h3>mp3 to wav</h3>
+        <p>Have all of your mp3's converted to a higher quality, uncompressed wav file</p><br>
+        <a href="mp3-to-wav" target="_blank">Convert for free</a>
+      </div>
+      <div class="game-card" onclick="ytMp3()">
+        <img src="/img/ytmp3.png" alt="Youtube to mp3">
+        <h3>Youtube to mp3</h3>
+        <p>Here you can get YouTube videos converted to mp3's free, sorry about the ads I couldn't stop them.</p>
+        <a href="youtube-to-mp3" target="_blank">Convert for free</a>
+    </div>
+  </div>
+<br>
+<br>
+<hr>
+
+  <script>
+            function mp3Boost() {
+window.open('mp3-bass-boost', '_blank');
+    }
+    
+    function mp3Wav() {
+window.open('mp3-to-wav', '_blank');
+    }
+
+        function ytMp3() {
+window.open('youtube-to-mp3', '_blank');
+    }
+  </script>
+</body>
+</html>
