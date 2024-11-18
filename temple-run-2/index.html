@@ -3,37 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temple run 2</title>
+    <title>Temple Run 2</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
         #Iframe {
             width: 80%;
             height: 80vh;
+            border: 10px solid grey;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .button-bar {
             display: flex;
             justify-content: center;
-            margin-top: 10px;
-            padding: 10px; 
-            background-color: grey; 
+            padding: 10px;
+            background-color: grey;
+            border-radius: 5px;
             width: 80%;
         }
 
         .button-bar img {
             width: 40px;
             height: 40px;
-            cursor: pointer; 
+            cursor: pointer;
         }
+
+
     </style>
 </head>
 <body>
 
-<center>
-    <iframe id="Iframe" src="https://narrow-one.github.io/n8/temple-run-2/"></iframe>
-</center>
-    
+    <iframe id="Iframe" src="https://narrow-one.github.io/n8/temple-run-2/" title="temple run 2" allowfullscreen></iframe>
+
     <div class="button-bar">
-        <img src="https://sigmagames69.github.io/img/full.png" onclick="makeFullscreen()" alt="fullscreen">
+        <img src="https://sigmagames69.github.io/img/full.png" onclick="makeFullscreen()" alt="Fullscreen Icon" title="Click to enter fullscreen mode">
     </div>
 
     <script>
@@ -42,11 +58,11 @@
 
             if (iframe.requestFullscreen) {
                 iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) { // Firefox
+            } else if (iframe.mozRequestFullScreen) {
                 iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            } else if (iframe.webkitRequestFullscreen) {
                 iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) { // IE/Edge
+            } else if (iframe.msRequestFullscreen) {
                 iframe.msRequestFullscreen();
             }
         }
