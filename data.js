@@ -1,8 +1,8 @@
     const data = [
-      { name: "Blocky Browser", url: "browser", query: "internet" },
-      { name: "Blocky Browser", url: "browser", query: "internet browser" },
-      { name: "Blocky Browser", url: "browser", query: "browser" },
-      { name: "Blocky Browser", url: "browser", query: "blocky browser" },
+      { name: "Blocky Browser", url: "services/browser", query: "internet" },
+      { name: "Blocky Browser", url: "services/browser", query: "internet browser" },
+      { name: "Blocky Browser", url: "services/browser", query: "browser" },
+      { name: "Blocky Browser", url: "services/browser", query: "blocky browser" },
 
       { name: "Retro Bowl", url: "retro-bowl", query: "retro bowl" },
       { name: "Retro Bowl", url: "retro-bowl", query: "retro bowl college" },
