@@ -69,3 +69,4 @@
       { name: "Subway Surfers", url: "subway-surfers", query: "subway surfer" },
 
     ];
+
