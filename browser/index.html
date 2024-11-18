@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocky Browser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #Iframe {
+            width: 80%;
+            height: 80vh;
+            border: 10px solid grey;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-bar {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: grey;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        .button-bar img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <iframe id="Iframe" src="https://cybertoilet.github.io" title="blocky browser" allowfullscreen></iframe> <!-- dont mind the url i know its funny -->
+
+    <div class="button-bar">
+        <img src="https://sigmagames69.github.io/img/full.png" onclick="makeFullscreen()" alt="Fullscreen Icon" title="Click to enter fullscreen mode">
+    </div>
+
+    <script>
+        function makeFullscreen() {
+            const iframe = document.getElementById('Iframe');
+
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) {
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) {
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) {
+                iframe.msRequestFullscreen();
+            }
+        }
+    </script>
+
+</body>
+</html>
