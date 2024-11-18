@@ -3,19 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blocky Browser</title>
+    <title>Blocky browser</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: white;
-            color: #333;
+            background-color: #121212;
+            color: #39FF14;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            width: 100vw;
+            overflow-x: auto;
+        }
+
+        header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            text-align: center;
+            color: #39FF14;
+            border-bottom: 2px solid #39FF14;
+            width: 100%;
+        }
+
+        .search-container {
+            position: relative;
+            width: 500px;
+            margin: 10px auto;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #39FF14;
+            border-radius: 4px;
+            background-color: #1e1e1e;
+            color: #39FF14;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border: 2px solid #55ff33;
+        }
+
+        .results-container {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            color: #000;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 10;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .result-item {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .result-item:hover {
+            background-color: #e0e0e0;
         }
 
         #Iframe {
@@ -24,6 +80,7 @@
             border: 10px solid grey;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
 
         .button-bar {
@@ -40,19 +97,53 @@
             height: 40px;
             cursor: pointer;
         }
-
-
     </style>
 </head>
 <body>
 
-    <iframe id="Iframe" src="https://cybertoilet.github.io" title="blocky browser" allowfullscreen></iframe> <!-- dont mind the url i know its funny -->
+    <header>
+        <h1>Blocky browser</h1>
+        <div class="search-container">
+            <input type="text" class="search-bar" id="searchBar" placeholder="Search our games..." oninput="handleSearch()">
+            <div class="results-container" id="resultsContainer"></div>
+        </div>
+    </header>
+
+    <iframe id="Iframe" src="https://cybertoilet.github.io" title="blocky browser" allowfullscreen></iframe> <!--dont mind that url its weird-->
 
     <div class="button-bar">
         <img src="https://sigmagames69.github.io/img/full.png" onclick="makeFullscreen()" alt="Fullscreen Icon" title="Click to enter fullscreen mode">
     </div>
 
+    <script src="/data2.js"></script>
     <script>
+
+        function handleSearch() {
+            const input = document.getElementById('searchBar').value.toLowerCase();
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = '';
+            if (input.trim() === '') {
+                resultsContainer.style.display = 'none';
+                return;
+            }
+            const filteredResults = data.filter(item => item.query.toLowerCase().includes(input));
+            if (filteredResults.length > 0) {
+                resultsContainer.style.display = 'block';
+                filteredResults.forEach(item => {
+                    const resultItem = document.createElement('div');
+                    resultItem.textContent = item.name;
+                    resultItem.classList.add('result-item');
+                    resultItem.onclick = () => {
+                        window.open(item.url, '_blank');
+                        resultsContainer.style.display = 'none';
+                    };
+                    resultsContainer.appendChild(resultItem);
+                });
+            } else {
+                resultsContainer.style.display = 'none';
+            }
+        }
+
         function makeFullscreen() {
             const iframe = document.getElementById('Iframe');
 
