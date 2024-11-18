@@ -1,4 +1,9 @@
     const data = [
+      { name: "Blocky Browser", url: "browser", query: "internet" },
+      { name: "Blocky Browser", url: "browser", query: "internet browser" },
+      { name: "Blocky Browser", url: "browser", query: "browser" },
+      { name: "Blocky Browser", url: "browser", query: "blocky browser" },
+
       { name: "Retro Bowl", url: "retro-bowl", query: "retro bowl" },
       { name: "Retro Bowl", url: "retro-bowl", query: "retro bowl college" },
 
@@ -68,5 +73,51 @@
       { name: "Subway Surfers", url: "subway-surfers", query: "subway surf" },
       { name: "Subway Surfers", url: "subway-surfers", query: "subway surfer" },
 
-    ];
+      // audio services
+      { name: "Audio Services", url: "services", query: "audio services" },
+      { name: "Audio Services", url: "services", query: "audio" },
+      { name: "Audio Services", url: "services", query: "music services" },
+      { name: "Audio Services", url: "services", query: "music" },
+      { name: "Audio Services", url: "services", query: "audio converter" },
+      { name: "Audio Service", url: "services", query: "mp3" },
+      { name: "Audio Service", url: "services", query: "converter" },
+      { name: "Audio Service", url: "services", query: "convert" },
 
+      { name: "Audio Service", url: "services", query: "bass boost" },
+      { name: "Audio Service", url: "services", query: "bass booster" },
+      { name: "Audio Service", url: "services", query: "audio boost" },
+      { name: "Audio Service", url: "services", query: "audio booster" },
+      { name: "Audio Service", url: "services", query: "music boost" },
+      { name: "Audio Service", url: "services", query: "music booster" },
+      { name: "Audio Service", url: "services", query: "audio bass boost" },
+      { name: "Audio Service", url: "services", query: "audio bass booster" },
+      { name: "Audio Service", url: "services", query: "music bass boost" },
+      { name: "Audio Service", url: "services", query: "music bass booster" },
+      { name: "Audio Service", url: "services", query: "mp3 bass boost" },
+      { name: "Audio Service", url: "services", query: "mp3 bass booster" },
+      { name: "Audio Service", url: "services", query: ".mp3 bass boost" },
+      { name: "Audio Service", url: "services", query: ".mp3 bass booster" },
+      { name: "Audio Service", url: "services", query: "mpeg bass boost" },
+      { name: "Audio Service", url: "services", query: "mpeg bass booster" },
+      { name: "Audio Service", url: "services", query: "mp4 bass boost" },
+      { name: "Audio Service", url: "services", query: "mp4 bass booster" },
+      { name: "Audio Service", url: "services", query: ".mp4 bass boost" },
+      { name: "Audio Service", url: "services", query: ".mp4 bass booster" },
+      { name: "Audio Service", url: "services", query: "mpeg video bass booster" },
+      { name: "Audio Service", url: "services", query: "mpeg video bass boost" },
+      { name: "Audio Service", url: "services", query: "m4a bass boost" },
+      { name: "Audio Service", url: "services", query: "m4a bass booster" },
+      { name: "Audio Service", url: "services", query: ".m4a bass boost" },
+      { name: "Audio Service", url: "services", query: ".m4a bass booster" },
+
+      { name: "Audio Service", url: "services", query: "youtube" },
+      { name: "Audio Service", url: "services", query: "youtube to mp3" },
+      { name: "Audio Service", url: "services", query: "youtube download" },
+      { name: "Audio Service", url: "services", query: "yt" },
+      { name: "Audio Service", url: "services", query: "yt mp3" },
+      { name: "Audio Service", url: "services", query: "yt download" },
+      { name: "Audio Service", url: "services", query: "youtube" },
+
+      { name: "Audio Service", url: "services", query: "mp3 to wav" },
+      { name: "Audio Service", url: "services", query: "wav" },
+    ];
