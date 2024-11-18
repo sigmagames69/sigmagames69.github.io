@@ -79,6 +79,7 @@
             border: 10px solid grey;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px; /* Adjust this value to increase/decrease space */
         }
 
         .button-bar {
@@ -100,6 +101,7 @@
 <body>
 
     <header>
+        <h1>Moto Road Rash 3D</h1>
         <div class="search-container">
             <input type="text" class="search-bar" id="searchBar" placeholder="Search our games..." oninput="handleSearch()">
             <div class="results-container" id="resultsContainer"></div>
@@ -112,8 +114,8 @@
         <img src="https://sigmagames69.github.io/img/full.png" onclick="makeFullscreen()" alt="Fullscreen Icon" title="Click to enter fullscreen mode">
     </div>
 
-    <script src="https://sigmagames69.github.io/data.js"></script>
-    <script>
+    <script src="https://sigmagames69.github.io/data.js">
+<script>
 
         function handleSearch() {
             const input = document.getElementById('searchBar').value.toLowerCase();
