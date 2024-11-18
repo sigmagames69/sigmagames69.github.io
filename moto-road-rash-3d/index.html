@@ -14,7 +14,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Align items to the start */
+            justify-content: center;
             height: 100vh;
         }
 
@@ -79,8 +79,7 @@
             border: 10px solid grey;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            padding-top: 20px; /* Add padding to the top */
-            margin-top: 20px; /* This can be adjusted for spacing */
+            margin-top: 20px;
         }
 
         .button-bar {
@@ -115,14 +114,8 @@
         <img src="https://sigmagames69.github.io/img/full.png" onclick="makeFullscreen()" alt="Fullscreen Icon" title="Click to enter fullscreen mode">
     </div>
 
+    <script src="/data.js"></script>
     <script>
-        const data = [
-            { name: "Moto Road Rash 3D", url: "https://htmlxm.github.io/h7/moto-road-rash-3d/", query: "moto road rash" },
-            { name: "Snow Rider 3D", url: "snow-rider-3d", query: "snow rider" },
-            { name: "Retro Bowl", url: "retro-bowl", query: "retro bowl" },
-            { name: "Subway Surfers", url: "subway-surfers", query: "subway surfers" }
-            // Add more games as needed
-        ];
 
         function handleSearch() {
             const input = document.getElementById('searchBar').value.toLowerCase();
