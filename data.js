@@ -4,6 +4,9 @@
       { name: "Blocky Browser", url: "services/browser", query: "browser" },
       { name: "Blocky Browser", url: "services/browser", query: "blocky browser" },
 
+      { name: "Drive Mad", url: "drive-mad", query: "drive mad" },
+      { name: "Blocky Browser", url: "drive-mad", query: "monster truck" },
+
       { name: "Deal or no Deal", url: "deal-or-no-deal", query: "deal" },
       { name: "Deal or no Deal", url: "deal-or-no-deal", query: "deal or no deal" },
 
@@ -125,7 +128,4 @@
 
       { name: "Audio Service", url: "services", query: "mp3 to wav" },
       { name: "Audio Service", url: "services", query: "wav" },
-
-      { name: "Monkey mart", url: "monkey-mart", query: "monkey" },
-      { name: "Monkey mart", url: "monkey-mart", query: "monkey mart" },
     ];
