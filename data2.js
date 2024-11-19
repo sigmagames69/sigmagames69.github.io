@@ -2,6 +2,9 @@
       { name: "Home", url: "https://sigmagames69.github.io", query: "home" },
       { name: "Home", url: "https://sigmagames69.github.io", query: "back" },
         
+      { name: "Drive Mad", url: "/drive-mad", query: "drive mad" },
+      { name: "Blocky Browser", url: "/drive-mad", query: "monster truck" },
+
       { name: "Blocky Browser", url: "/services/browser", query: "internet" },
       { name: "Blocky Browser", url: "/services/browser", query: "internet browser" },
       { name: "Blocky Browser", url: "/services/browser", query: "browser" },
