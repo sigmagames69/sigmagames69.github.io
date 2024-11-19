@@ -7,6 +7,11 @@
       { name: "Blocky Browser", url: "/services/browser", query: "browser" },
       { name: "Blocky Browser", url: "/services/browser", query: "blocky browser" },
 
+      { name: "Deal or no Deal", url: "/deal-or-no-deal", query: "deal" },
+      { name: "Deal or no Deal", url: "/deal-or-no-deal", query: "deal or no deal" },
+
+      { name: "OvO", url: "/ovo", query: "ovo" },
+
       { name: "Retro Bowl", url: "/retro-bowl", query: "retro bowl" },
       { name: "Retro Bowl", url: "/retro-bowl", query: "retro bowl college" },
 
@@ -123,4 +128,7 @@
 
       { name: "Audio Service", url: "/services", query: "mp3 to wav" },
       { name: "Audio Service", url: "/services", query: "wav" },
+
+      { name: "Monkey mart", url: "/monkey-mart", query: "monkey" },
+      { name: "Monkey mart", url: "/monkey-mart", query: "monkey mart" },
     ];
