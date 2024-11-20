@@ -21,6 +21,8 @@
       position: relative;
       width: 500px;
       margin: 10px auto;
+      display: flex; /* Use flexbox to align items */
+      align-items: center; /* Center items vertically */
     }
     .search-bar {
       width: 100%;
@@ -105,7 +107,21 @@
       color: #55ff33;
       font-weight: bold;
     }
-
+    /* Button Styles */
+    .styled-button {
+      background-color: #39FF14; /* Button color */
+      color: #121212; /* Text color */
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-left: 10px; /* Space between search bar and button */
+    }
+    .styled-button:hover {
+      background-color: #55ff33; /* Hover color */
+    }
   </style>
 </head>
 
@@ -113,13 +129,14 @@
   <header>
     <h1>Sigma audio services</h1>
     <div class="search-container">
+      <input type="text" class="search-bar" placeholder="Search..." />
+      <button class="styled-button" onclick="home()">Home</button>
       <div class="results-container" id="resultsContainer"></div>
     </div>
   </header>
 
   <div class="main-content">
-
-<h2>Our free audio Services</h2>
+    <h2>Our free audio Services</h2>
     <div class="game-cards">
       <div class="game-card" onclick="mp3Boost()">
         <img src="https://sigmagames69.github.io/img/boost.png" alt="mp3 Bass boost">
@@ -138,23 +155,26 @@
         <h3>Youtube to mp3</h3>
         <p>Here you can get YouTube videos converted to mp3's free, sorry about the ads I couldn't stop them.</p>
         <a href="youtube-to-mp3" target="_blank">Convert for free</a>
+      </div>
     </div>
-  </div>
-<br>
-<br>
-<hr>
+    <br>
+    <br>
+    <hr>
 
   <script>
-            function mp3Boost() {
-window.open('mp3-bass-boost', '_blank');
+    function mp3Boost() {
+        window.open('mp3-bass-boost', '_blank');
     }
     
     function mp3Wav() {
-window.open('mp3-to-wav', '_blank');
+        window.open('mp3-to-wav', '_blank');
     }
 
-        function ytMp3() {
-window.open('youtube-to-mp3', '_blank');
+    function ytMp3() {
+        window.open('youtube-to-mp3', '_blank');
+    }
+    function home() {
+    window.open('https://sigmagames69.github.io', '_blank');
     }
   </script>
 </body>
