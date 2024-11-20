@@ -22,15 +22,15 @@
 
       { name: "Basket Random", url: "basket-random", query: "basket" },
       { name: "Basket Random", url: "basket-random", query: "basketball" },
-      { name: "Basket Random", url: "basket-random", query: "basket random },
+      { name: "Basket Random", url: "basket-random", query: "basket random" },
 
       { name: "Soccer Random", url: "soccer-random", query: "soccer" },
       { name: "Soccer Random", url: "soccer-random", query: "basketball" },
-      { name: "Soccer Random", url: "soccer-random", query: "basket random },
+      { name: "Soccer Random", url: "soccer-random", query: "basket random" },
 
       { name: "Volley Random", url: "volley-random", query: "volley" },
       { name: "Volley Random", url: "volley-random", query: "volleyball" },
-      { name: "Volley Random", url: "volley-random", query: "volley random },
+      { name: "Volley Random", url: "volley-random", query: "volley random" },
 
       { name: "Balloons TD 1", url: "balloons-td-1", query: "balloons td" },
       { name: "Balloons TD 2", url: "balloons-td-2", query: "balloons td" },
