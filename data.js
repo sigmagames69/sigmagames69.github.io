@@ -12,6 +12,8 @@
 
       { name: "OvO", url: "ovo", query: "ovo" },
 
+      { name: "Cookie clicker", url: "cookie-clicker", query: "cookie clicker" },
+
       { name: "Retro Bowl", url: "retro-bowl", query: "retro bowl" },
       { name: "Retro Bowl", url: "retro-bowl", query: "retro bowl college" },
 
