@@ -1,211 +1,236 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sigma Games</title>
-  <link rel="icon" href="img/favicon.png">
-  <style>
-    body {
-      margin: 0;
-      background-color: #121212;
-      color: #39FF14;
-      font-family: 'Roboto', Arial, sans-serif;
-    }
-    header {
-      background-color: #1e1e1e;
-      padding: 20px;
-      text-align: center;
-      color: #39FF14;
-      border-bottom: 2px solid #39FF14;
-    }
-    .search-container {
-      position: relative;
-      width: 500px;
-      margin: 10px auto;
-    }
-    .search-bar {
-      width: 100%;
-      padding: 10px;
-      border: 2px solid #39FF14;
-      border-radius: 4px;
-      background-color: #1e1e1e;
-      color: #39FF14;
-    }
-    .search-bar:focus {
-      outline: none;
-      border: 2px solid #55ff33;
-    }
-    .results-container {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background: #ffffff;
-      color: #000;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      display: none;
-      z-index: 10;
-      max-height: 200px;
-      overflow-y: auto;
-    }
-    .result-item {
-      padding: 10px;
-      cursor: pointer;
-      border-bottom: 1px solid #ccc;
-    }
-    .result-item:hover {
-      background-color: #e0e0e0;
-    }
-    .main-content {
-      padding: 20px;
-      text-align: center;
-    }
-    .greeting-message {
-      margin-bottom: 20px;
-      font-size: 24px;
-      color: #55ff33;
-    }
-    .game-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .game-card {
-      background-color: #1e1e1e;
-      border: 2px solid #39FF14;
-      border-radius: 8px;
-      width: 300px;
-      padding: 15px;
-      color: #39FF14;
-      text-align: left;
-      transition: transform 0.3s;
-    }
-    .game-card:hover {
-      transform: translateY(-5px);
-      border-color: #55ff33;
-    }
-    .game-card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-    .game-card h3 {
-      margin: 10px 0;
-      font-size: 20px;
-    }
-    .game-card p {
-      margin: 5px 0;
-      font-size: 14px;
-    }
-    .game-card a {
-      text-decoration: none;
-      color: #55ff33;
-      font-weight: bold;
-    }
-    footer {
-      background-color: #1e1e1e;
-      color: #39FF14;
-      padding: 10px;
-      text-align: center;
-      border-top: 2px solid #39FF14;
-      margin-top: 20px;
-    }
-  </style>
+    <title>Sigma Games</title>
+    <link rel="icon" href="img/favicon.png">
+    <style>
+        body {
+            margin: 0;
+            background-color: #121212;
+            color: #39FF14;
+            font-family: 'Roboto', Arial, sans-serif;
+        }
+        header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            text-align: center;
+            color: #39FF14;
+            border-bottom: 2px solid #39FF14;
+        }
+        .search-container {
+            position: relative;
+            width: 500px;
+            margin: 10px auto;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #39FF14;
+            border-radius: 4px;
+            background-color: #1e1e1e;
+            color: #39FF14;
+        }
+        .search-bar:focus {
+            outline: none;
+            border: 2px solid #55ff33;
+        }
+        .results-container {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            color: #000;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 10;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .result-item {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #ccc;
+        }
+        .result-item:hover {
+            background-color: #e0e0e0;
+        }
+        .main-content {
+            padding: 20px;
+            text-align: center;
+        }
+        .greeting-message {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #55ff33;
+        }
+        .game-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .game-card {
+            background-color: #1e1e1e;
+            border: 2px solid #39FF14;
+            border-radius: 8px;
+            width: 300px;
+            padding: 15px;
+            color: #39FF14;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: #55ff33;
+        }
+        .game-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+        .game-card h3 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+        .game-card p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .game-card a {
+            text-decoration: none;
+            color: #55ff33;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #1e1e1e;
+            color: #39FF14;
+            padding: 10px;
+            text-align: center;
+            border-top: 2px solid #39FF14;
+            margin-top: 20px;
+        }
+        .change-log-link {
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* Distance from the bottom */
+            right: 20px; /* Distance from the right */
+            background-color: #1e1e1e;
+            color: #39FF14;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 1000; /* Ensure it is above other content */
+        }
+        .change-log-link:hover {
+            background-color: #55ff33;
+            color: #000;
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <h1>Sigma Games</h1>
-    <div class="search-container">
-      <input type="text" class="search-bar" id="searchBar" placeholder=" Search our free games and services..." oninput="handleSearch()">
-      <div class="results-container" id="resultsContainer"></div>
+    <header>
+        <h1>Sigma Games</h1>
+        <div class="search-container">
+            <input type="text" class="search-bar" id="searchBar" placeholder=" Search our free games and services..." oninput="handleSearch()">
+            <div class="results-container" id="resultsContainer"></div>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div id="a" class="greeting-message"></div>
+        <p>Here at Sigma Games we are dedicated to providing you with the latest games, search browsers and other free services.</p>
+        <p>This site will always be no-cost and ad-free so the games are free to use without random ad breaks.</p>
+        <br>
+        <h2>Popular Unblocked Games</h2>
+        <div class="game-cards">
+            <div class="game-card" onclick="retroBowl()">
+                <img src="img/rb.png" alt="Retro Bowl">
+                <h3>Retro Bowl</h3>
+                <p>Retro Bowl is an American football video game developed by New Star Games for iOS, Android, and unblocked online.</p>
+                <a href="retro-bowl" target="_blank">Play Now</a>
+            </div>
+            <div class="game-card" onclick="subwaySurfers()">
+                <img src="img/ss.jpeg" alt="Subway Surfers">
+                <h3>Subway Surfers</h3>
+                <p>Subway Surfers is a 2012 endless runner mobile game co-developed by Kiloo and SYBO Games, private companies based in Denmark.</p>
+                <a href="subway-surfers" target="_blank">Play Now</a>
+            </div>
+            <div class="game-card" onclick="snowRider3D()">
+                <img src="img/sr3d.jpeg" alt="Snow Rider 3D">
+                <h3>Snow Rider 3D</h3>
+                <p>The world in Snow Rider is extremely lively, with unreal objects. You will control a sled through a series of hazards in dangerous snowy mountains.</p>
+                <a href="snow-rider-3d" target="_blank">Play Now</a>
+            </div>
+        </div>
+        <br>
     </div>
-  </header>
 
-  <div class="main-content">
-    <div id="a" class="greeting-message"></div>
-    <p>Here at Sigma Games we are dedicated to providing you with the latest games, search browsers and other free services.</p><p>  This site will always be no-cost and ad-free so the games are free to use without random ad breaks.</p>
-<br>
-    <h2>Popular Unblocked Games</h2>
-    <div class="game-cards">
-      <div class="game-card" onclick="retroBowl()">
-        <img src="img/rb.png" alt="Retro Bowl">
-        <h3>Retro Bowl</h3>
-        <p>Retro Bowl is an American football video game developed by New Star Games for iOS, Android, and unblocked online</p>
-        <a href="retro-bowl" target="_blank">Play Now</a>
-      </div>
-      <div class="game-card" onclick="subwaySurfers()">
-        <img src="img/ss.jpeg" alt="Subway Surfers">
-        <h3>Subway Surfers</h3>
-        <p>Subway Surfers is a 2012 endless runner mobile game which is co-developed by Kiloo and SYBO Games, private companies based in Denmark</p>
-        <a href="subway-surfers" target="_blank">Play Now</a>
-      </div>
-      <div class="game-card" onclick="snowRider3D()">
-        <img src="img/sr3d.jpeg" alt="Snow Rider 3D">
-        <h3>Snow Rider 3D</h3>
-        <p>The world in Snow Rider is extremely lively, with unreal objects. You will control a sled through a series of hazards in dangerous snowy mountains</p>
-        <a href="snow-rider-3d" target="_blank">Play Now</a>
-      </div>
-      </div>
-      <br>
+    <a href="change-log.html" class="change-log-link">View Change Log</a> <!-- Change log link -->
 
+    <footer>
+        <p>&copy; 2024 Sigma Games. All rights reserved.</p>
+    </footer>
 
-  <script src="data.js"></script>
-  <script>
-            function retroBowl() {
-window.open('retro-bowl', '_blank');
-    }
-    
-    function subwaySurfers() {
-window.open('subway-surfers', '_blank');
-    }
+    <script src="data.js"></script>
+    <script>
+        function retroBowl() {
+            window.open('retro-bowl', '_blank');
+        }
+        
+        function subwaySurfers() {
+            window.open('subway-surfers', '_blank');
+        }
 
         function snowRider3D() {
-window.open('snow-rider-3d', '_blank');
-    }
-    function handleSearch() {
-      const input = document.getElementById('searchBar').value.toLowerCase();
-      const resultsContainer = document.getElementById('resultsContainer');
-      resultsContainer.innerHTML = '';
-      if (input.trim() === '') {
-        resultsContainer.style.display = 'none';
-        return;
-      }
-      const filteredResults = data.filter(item => item.query.toLowerCase().includes(input));
-      if (filteredResults.length > 0) {
-        resultsContainer.style.display = 'block';
-        filteredResults.forEach(item => {
-          const resultItem = document.createElement('div');
-          resultItem.textContent = item.name;
-          resultItem.classList.add('result-item');
-          resultItem.onclick = () => {
-            window.open(item.url, '_blank');
-            resultsContainer.style.display = 'none';
-          };
-          resultsContainer.appendChild(resultItem);
-        });
-      } else {
-        resultsContainer.style.display = 'none';
-      }
-    }
+            window.open('snow-rider-3d', '_blank');
+        }
+        
+        function handleSearch() {
+            const input = document.getElementById('searchBar').value.toLowerCase();
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = '';
+            if (input.trim() === '') {
+                resultsContainer.style.display = 'none';
+                return;
+            }
+            const filteredResults = data.filter(item => item.query.toLowerCase().includes(input));
+            if (filteredResults.length > 0) {
+                resultsContainer.style.display = 'block';
+                filteredResults.forEach(item => {
+                    const resultItem = document.createElement('div');
+                    resultItem.textContent = item.name;
+                    resultItem.classList.add('result-item');
+                    resultItem.onclick = () => {
+                        window.open(item.url, '_blank');
+                        resultsContainer.style.display = 'none';
+                    };
+                    resultsContainer.appendChild(resultItem);
+                });
+            } else {
+                resultsContainer.style.display = 'none';
+            }
+        }
 
-    const place = document.getElementById("a");
-    let today = new Date();
-    let hourNow = today.getHours();
-    let greeting;
-    if (hourNow > 18) {
-      greeting = 'Good evening!';
-    } else if (hourNow > 12) {
-      greeting = 'Good afternoon!';
-    } else if (hourNow > 0) {
-      greeting = 'Good morning!';
-    } else {
-      greeting = 'Hello';
-    }
-    place.innerHTML = '<span>' + greeting + ' and welcome to Sigma Games!</span>';
-  </script>
+        const place = document.getElementById("a");
+        let today = new Date();
+        let hourNow = today.getHours();
+        let greeting;
+        if (hourNow > 18) {
+            greeting = 'Good evening!';
+        } else if (hourNow > 12) {
+            greeting = 'Good afternoon!';
+        } else if (hourNow > 0) {
+            greeting = 'Good morning!';
+        } else {
+            greeting = 'Hello';
+        }
+        place.innerHTML = '<span>' + greeting + ' and welcome to Sigma Games!</span>';
+    </script>
 </body>
 </html>
