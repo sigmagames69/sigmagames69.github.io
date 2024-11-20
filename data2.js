@@ -21,6 +21,18 @@
       { name: "Snow Rider 3D", url: "/snow-rider-3d", query: "snow rider 3d" },
       { name: "Snow Rider 3D", url: "/snow-rider-3d", query: "snow rider" },
 
+      { name: "Basket Random", url: "/basket-random", query: "basket" },
+      { name: "Basket Random", url: "/basket-random", query: "basketball" },
+      { name: "Basket Random", url: "/basket-random", query: "basket random },
+
+      { name: "Soccer Random", url: "/soccer-random", query: "soccer" },
+      { name: "Soccer Random", url: "/soccer-random", query: "basketball" },
+      { name: "Soccer Random", url: "/soccer-random", query: "basket random },
+
+      { name: "Volley Random", url: "/volley-random", query: "volley" },
+      { name: "Volley Random", url: "/volley-random", query: "volleyball" },
+      { name: "Volley Random", url: "/volley-random", query: "volley random },
+
       { name: "Balloons TD 1", url: "/balloons-td-1", query: "balloons td" },
       { name: "Balloons TD 2", url: "/balloons-td-2", query: "balloons td" },
       { name: "Balloons TD 3", url: "/balloons-td-3", query: "balloons td" },
@@ -134,4 +146,8 @@
 
       { name: "Monkey mart", url: "/monkey-mart", query: "monkey" },
       { name: "Monkey mart", url: "/monkey-mart", query: "monkey mart" },
+
+      { name: "Paper plane", url: "/paper-plane", query: "airplane" },
+      { name: "Paper plane", url: "/paper-plane", query: "plane" },
+      { name: "Paper plane", url: "/paper-plane", query: paper plane" },
     ];
