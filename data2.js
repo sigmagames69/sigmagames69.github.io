@@ -151,5 +151,8 @@
 
       { name: "Paper plane", url: "/paper-plane", query: "airplane" },
       { name: "Paper plane", url: "/paper-plane", query: "plane" },
-      { name: "Paper plane", url: "/paper-plane", query: paper plane" },
+      { name: "Paper plane", url: "/paper-plane", query: "paper plane" },
+
+      { name: "Bitlife", url: "/bitlife", query: "bitlife" },
+      { name: "Bitlife", url: "/bitlife", query: "bit life" },
     ];
