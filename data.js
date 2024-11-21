@@ -149,4 +149,7 @@
 
       { name: "Audio Service", url: "services", query: "mp3 to wav" },
       { name: "Audio Service", url: "services", query: "wav" },
+
+      { name: "Bitlife", url: "bitlife", query: "bitlife" },
+      { name: "Bitlife", url: "bitlife", query: "bit life" },
     ];
