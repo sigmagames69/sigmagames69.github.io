@@ -165,4 +165,15 @@
 
       { name: "Idle ants", url: "/idle-ants", query: "ants" },
       { name: "Idle ants", url: "/idle-ants", query: "idle ants" },
+
+      { name: "C.a.t.s", url: "/cats", query: "cats" },
+      { name: "C.a.t.s", url: "/cats", query: "cats mobile" },
+      { name: "C.a.t.s", url: "/cats", query: "cats online" },
+      { name: "C.a.t.s", url: "/cats", query: "cats game" },
+
+      { name: "Stack Game", url: "/stack", query: "stack" },
+      { name: "Stack Game", url: "/stack", query: "stack game" },
+      { name: "Stack ball", url: "/stack", query: "stack" },
+      { name: "Stack ball", url: "/stack-ball", query: "stack" },
+      { name: "Stack ball", url: "/stack-ball", query: "stack ball" },
     ];
