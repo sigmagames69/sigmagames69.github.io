@@ -155,4 +155,14 @@
 
       { name: "Bitlife", url: "/bitlife", query: "bitlife" },
       { name: "Bitlife", url: "/bitlife", query: "bit life" },
+
+
+      { name: "We become what we behold", url: "/we-become-what-we-behold", query: "we become what we behold" },
+      { name: "We become what we behold", url: "/we-become-what-we-behold", query: "you become what you behold" },
+
+      { name: "Run 3", url: "/run3", query: "alien run" },
+      { name: "Run 3", url: "/run3", query: "run 3" },
+
+      { name: "Idle ants", url: "/idle-ants", query: "ants" },
+      { name: "Idle ants", url: "/idle-ants", query: "idle ants" },
     ];
