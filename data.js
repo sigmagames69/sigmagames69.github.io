@@ -12,6 +12,11 @@
 
       { name: "OvO", url: "ovo", query: "ovo" },
 
+      { name: "Angry birds", url: "angry-birds", query: "angry birds" },
+
+      { name: "Bad piggies", url: "bad-piggies", query: "bad piggies" },
+      { name: "Bad piggies", url: "bad-piggies", query: "bad pigs" },
+
       { name: "Cookie clicker", url: "cookie-clicker", query: "cookie clicker" },
 
       { name: "Retro Bowl", url: "retro-bowl", query: "retro bowl" },
