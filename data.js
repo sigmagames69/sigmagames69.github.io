@@ -175,5 +175,12 @@
       { name: "Stack ball", url: "stack-ball", query: "stack" },
       { name: "Stack ball", url: "stack-ball", query: "stack ball" },
     
-        
+      { name: "Brain Test: Tricky Puzzles", url: "brain-test-tricky-puzzle", query: "brain test" },        
+      { name: "Brain Test: Tricky Puzzles", url: "brain-test-tricky-puzzle", query: "brain test game" },
+      { name: "Brain Test: Tricky Puzzles", url: "brain-test-tricky-puzzle", query: "brain test puzzles" },
+      { name: "Brain Test: Tricky Puzzles", url: "brain-test-tricky-puzzle", query: "brain test tricky puzzle" },        
+
+      { name: "Top Speed 3D", url: "top-speed-3d", query: "top speed game" },      
+      { name: "Top Speed 3D", url: "top-speed-3d", query: "top speed" },      
+      { name: "Top Speed 3D", url: "top-speed-3d", query: "top speed 3d" },      
     ];
