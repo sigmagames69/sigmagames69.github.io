@@ -1,0 +1,155 @@
+{
+  "data": {
+    "id": "cm3mbqmma00010jl780axgiv2",
+    "accountId": 20740740,
+    "name": "lecoder",
+    "publicName": "lecoder",
+    "chatModelId": "gpt-4o",
+    "directive": "# Objective: You are a code generator and helper. Your objective is to generate code. To achieve this, follow these general guidelines: Answer the question effectively. If a question is not clear, ask follow-up questions.\n\n# Style: Your communication style should be friendly and professional. Use structured formatting including bullet points, bolding, and headers.\n\n# Other Rules: For any user question, ALWAYS query your knowledge source, even if you think you know the answer. Your answer MUST come from the information returned from that knowledge source. If a user asks questions beyond the scope of your objective topic, do not address these queries. Instead, kindly redirect to something you can help them with instead. when a question is asked bs sure to ALWAYS give a full response",
+    "greetingType": "Generated",
+    "generatedGreetingInstructions": "Say hello and tell me what you can do.",
+    "staticGreeting": "How can I help you today?",
+    "userInputPlaceholder": "Ask me about coding",
+    "temperature": 0.5,
+    "byokAuthenticationId": "",
+    "shouldDisplayDisclosure": false,
+    "disclosureText": "This is an automated chatbot response. [Learn more](https://zapier.com/legal/terms-of-service)",
+    "shouldRestrictEmbedDomains": false,
+    "allowedEmbedDomains": [
+      ""
+    ],
+    "knowledgeSourcesNoResultsMode": "ChatGPT",
+    "knowledgeSourcesNoResultsMessage": "Sorry, I don’t know.",
+    "avatarUrl": null,
+    "interfacesProjectId": "cm3mbqnb1002br6tljmk9jekz",
+    "interfacesProjectUrlDisabled": null,
+    "interfaceUrl": "https://lecoder.zapier.app",
+    "theme": {
+      "brandColor": "#2563EB",
+      "radius": "0.5rem",
+      "background": "#eff4ff",
+      "foreground": "#2C3E50",
+      "card": "#FFFFFF",
+      "cardForeground": "#2C3E50",
+      "popover": "#F2F4F6",
+      "popoverForeground": "#2C3E50",
+      "primary": "#2563EB",
+      "primaryForeground": "#FFFFFF",
+      "secondary": "#F5F7FB",
+      "secondaryForeground": "#2C3E50",
+      "muted": "#c8d6f4",
+      "mutedForeground": "#7F8C8D",
+      "accent": "#dbe6fe",
+      "accentForeground": "#1d58d8",
+      "destructive": "#E74C3C",
+      "destructiveForeground": "#FFFFFF",
+      "border": "#D9DDE4",
+      "input": "#CBCFD6",
+      "ring": "#3b76f6",
+      "inputField": "#FFFFFF",
+      "inputFieldForeground": "#2C3E50",
+      "darkBackground": "#000000",
+      "darkForeground": "#F8FAFC",
+      "darkCard": "#1a1a1a",
+      "darkCardForeground": "#F8FAFC",
+      "darkPopover": "#1a1a1a",
+      "darkPopoverForeground": "#F8FAFC",
+      "darkPrimary": "#2563EB",
+      "darkPrimaryForeground": "#F8FAFC",
+      "darkSecondary": "#1E293B",
+      "darkSecondaryForeground": "#F8FAFC",
+      "darkMuted": "#3c5790",
+      "darkMutedForeground": "#94A3B8",
+      "darkAccent": "#1e4baf",
+      "darkAccentForeground": "#dbe6fe",
+      "darkDestructive": "#7F1D1D",
+      "darkDestructiveForeground": "#F8FAFC",
+      "darkBorder": "#1E293B",
+      "darkInput": "#1E293B",
+      "darkRing": "#3b76f6",
+      "darkInputField": "#1a1a1a",
+      "darkInputFieldForeground": "#F8FAFC"
+    },
+    "createdAt": "2024-11-18T01:05:32.422Z",
+    "updatedAt": "2024-11-25T20:01:31.729Z",
+    "config": {
+      "chatbotName": "lecoder",
+      "defaultMessageMode": "generated",
+      "defaultPrompt": "Say hello and tell me what you can do.",
+      "defaultMessage": "How can I help you today?",
+      "placeholder": "Ask me about coding",
+      "directive": "# Objective: You are a code generator and helper. Your objective is to generate code. To achieve this, follow these general guidelines: Answer the question effectively. If a question is not clear, ask follow-up questions.\n\n# Style: Your communication style should be friendly and professional. Use structured formatting including bullet points, bolding, and headers.\n\n# Other Rules: For any user question, ALWAYS query your knowledge source, even if you think you know the answer. Your answer MUST come from the information returned from that knowledge source. If a user asks questions beyond the scope of your objective topic, do not address these queries. Instead, kindly redirect to something you can help them with instead. when a question is asked bs sure to ALWAYS give a full response",
+      "useDirectiveToAlterDefaultMessage": true,
+      "authenticationId": "",
+      "maxTokens": 2048,
+      "temperature": 0.5,
+      "collectUserData": false,
+      "collectUserDataTemplate": "lead_generation",
+      "collectUserDataFields": [
+        {
+          "name": "name",
+          "fieldKey": null,
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "fieldKey": null,
+          "type": "email"
+        },
+        {
+          "name": "company",
+          "fieldKey": null,
+          "type": "string"
+        },
+        {
+          "name": "phone",
+          "fieldKey": null,
+          "type": "phone_number"
+        }
+      ],
+      "triggers": [
+        {
+          "type": "suggestions",
+          "triggerCondition": "after_every_chatbot_response",
+          "config": {
+            "id": "cm3mbqofr0007tfuek4djskjp",
+            "userEvent": "response",
+            "action": "suggestions",
+            "onClick": "suggestions",
+            "suggestions": [],
+            "triggerKeywords": [],
+            "enableAiSuggestions": true
+          }
+        }
+      ],
+      "displayDisclosure": false,
+      "disclosureText": "This is an automated chatbot response. [Learn more](https://zapier.com/legal/terms-of-service)",
+      "dataSourcesMaxResults": 5,
+      "dataSourcesResultsQuality": 0.6,
+      "dataSourcesMode": "chatgpt",
+      "dataSourcesNoResultsMode": "chatgpt",
+      "dataSourcesNoResultsMessage": "Sorry, I don’t know.",
+      "zapFunctions": [],
+      "embedHosts": [
+        "https://sigmagames69.github.io/ai",
+        "sigmagames69.github.io/ai/index.html"
+      ],
+      "restrictEmbedDomains": true
+    },
+    "actions": [
+      {
+        "type": "suggestions",
+        "triggerCondition": "after_every_chatbot_response",
+        "config": {
+          "id": "cm3mbqofr0007tfuek4djskjp",
+          "userEvent": "response",
+          "action": "suggestions",
+          "onClick": "suggestions",
+          "suggestions": [],
+          "triggerKeywords": [],
+          "enableAiSuggestions": true
+        }
+      }
+    ]
+  }
+}
