@@ -1,6 +1,6 @@
     const data = [
-      { name: "Home", url: "https://sigmagames69.github.io", query: "home" },
-      { name: "Home", url: "https://sigmagames69.github.io", query: "back" },
+      { name: "Home", url: "/https://sigmagames69.github.io", query: "home" },
+      { name: "Home", url: "/https://sigmagames69.github.io", query: "back" },
         
       { name: "Drive Mad", url: "/drive-mad", query: "drive mad" },
       { name: "Drive Mad", url: "/drive-mad", query: "monster truck" },
@@ -15,10 +15,10 @@
 
       { name: "OvO", url: "/ovo", query: "ovo" },
 
-      { name: "Angry birds", url: "angry-birds", query: "angry birds" },
+      { name: "Angry birds", url: "/angry-birds", query: "angry birds" },
 
-      { name: "Bad piggies", url: "bad-piggies", query: "bad piggies" },
-      { name: "Bad piggies", url: "bad-piggies", query: "bad pigs" },
+      { name: "Bad piggies", url: "/bad-piggies", query: "bad piggies" },
+      { name: "Bad piggies", url: "/bad-piggies", query: "bad pigs" },
         
       { name: "Cookie clicker", url: "/cookie-clicker", query: "cookie clicker" },
 
@@ -181,4 +181,13 @@
       { name: "Stack ball", url: "/stack", query: "stack" },
       { name: "Stack ball", url: "/stack-ball", query: "stack" },
       { name: "Stack ball", url: "/stack-ball", query: "stack ball" },
+
+      { name: "Brain Test: Tricky Puzzles", url: "/brain-test-tricky-puzzle", query: "brain test" },        
+      { name: "Brain Test: Tricky Puzzles", url: "/brain-test-tricky-puzzle", query: "brain test game" },
+      { name: "Brain Test: Tricky Puzzles", url: "/brain-test-tricky-puzzle", query: "brain test puzzles" },
+      { name: "Brain Test: Tricky Puzzles", url: "/brain-test-tricky-puzzle", query: "brain test tricky puzzle" },        
+
+      { name: "Top Speed 3D", url: "/top-speed-3d", query: "top speed game" },      
+      { name: "Top Speed 3D", url: "/top-speed-3d", query: "top speed" },      
+      { name: "Top Speed 3D", url: "/top-speed-3d", query: "top speed 3d" },      
     ];
