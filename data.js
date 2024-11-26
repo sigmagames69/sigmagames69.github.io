@@ -182,5 +182,9 @@
 
       { name: "Top Speed 3D", url: "top-speed-3d", query: "top speed game" },      
       { name: "Top Speed 3D", url: "top-speed-3d", query: "top speed" },      
-      { name: "Top Speed 3D", url: "top-speed-3d", query: "top speed 3d" },      
+      { name: "Top Speed 3D", url: "top-speed-3d", query: "top speed 3d" },    
+
+      { name: "Gladihoppers", url: "gladihoppers", query: "gladihoppers" },   
+      { name: "Gladihoppers", url: "gladihoppers", query: "gladehoppers" },   
+      { name: "Gladihoppers", url: "gladihoppers", query: "gladiator game" },  
     ];
