@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWF File Player - Sigma Games</title>
+    <link rel="icon" href="img/favicon.png">
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: #121212;
+            color: #39FF14;
+            font-family: 'Roboto', Arial, sans-serif;
+            text-align: center;
+        }
+
+        header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            color: #39FF14;
+            border-bottom: 2px solid #39FF14;
+        }
+
+        h3 {
+            color: #39FF14;
+        }
+
+        #swf-container {
+            margin: 20px auto;
+            border: 2px solid #39FF14;
+            width: 80%;
+            height: 500px; /* Adjust height as needed */
+            background-color: #1e1e1e;
+        }
+
+        .button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .fullscreen-button {
+            background-image: url('https://sigmagames69.github.io/img/full.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 50px;
+            height: 50px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .download {
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            border: 1px solid #39FF14;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .download:hover {
+            background-color: #55ff33;
+            color: #000;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>SWF File Player - Sigma Games</h1>
+    </header>
+
+    <h3>To use this website, choose an .swf file from your computer.</h3>
+    <h3>Your .swf file will be run and you can play it.</h3>
+
+    <input type="file" id="file-input" accept=".swf">
+    <div id="swf-container"></div>
+
+    <button class="fullscreen-button" title="Fullscreen" onclick="toggleFullscreen()"></button>
+
+    <script>
+        // Initialize Ruffle
+        const ruffle = window.RufflePlayer.newest();
+        const ruffleContainer = document.getElementById('swf-container');
+
+        // Handle file input
+        document.getElementById('file-input').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file && file.type === "application/x-shockwave-flash") {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const arrayBuffer = e.target.result;
+
+                    // Create a blob from the array buffer
+                    const blob = new Blob([arrayBuffer], { type: "application/x-shockwave-flash" });
+
+                    // Create a URL for the blob
+                    const objectURL = URL.createObjectURL(blob);
+
+                    // Clear previous content
+                    ruffleContainer.innerHTML = '';
+
+                    // Create and configure the Ruffle player instance
+                    const rufflePlayer = ruffle.createPlayer();
+                    ruffleContainer.appendChild(rufflePlayer);
+
+                    // Load the SWF file
+                    rufflePlayer.load(objectURL);
+                };
+                reader.readAsArrayBuffer(file);
+            } else {
+                alert("Please select a valid .swf file.");
+            }
+        });
+
+        // Toggle fullscreen
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+function open() {
+window.open('https://github.com/Joercat/swfarchive.git');
+}
+    </script>
+
+    <button onclick="open()" class="download">
+        <a href="https://github.com/Joercat/swfarchive.git" style="color: inherit; text-decoration: none;">
+            <h3>Click here if you need an SWF file.</h3>
+        </a>
+    </button>
+
+</body>
+</html>
