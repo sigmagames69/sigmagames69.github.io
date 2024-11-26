@@ -33,20 +33,16 @@
             width: 80%;
             height: 500px; /* Adjust height as needed */
             background-color: #1e1e1e;
+            position: relative; /* Added for positioning the player */
+            overflow: hidden; /* Prevent overflow */
         }
 
-        .button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px 2px;
-            cursor: pointer;
-            border-radius: 5px;
+        .ruffle-player {
+            width: 100%;
+            height: 100%;
+            position: absolute; /* Positioning for full coverage */
+            top: 0;
+            left: 0;
         }
 
         .fullscreen-button {
@@ -74,6 +70,13 @@
             color: #000;
         }
 
+        footer {
+            background-color: #1e1e1e;
+            color: #39FF14;
+            padding: 10px;
+            border-top: 2px solid #39FF14;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -86,14 +89,16 @@
     <h3>Your .swf file will be run and you can play it.</h3>
 
     <input type="file" id="file-input" accept=".swf">
-    <div id="swf-container"></div>
+    <div id="swf-container">
+        <div id="ruffle-player" class="ruffle-player"></div>
+    </div>
 
     <button class="fullscreen-button" title="Fullscreen" onclick="toggleFullscreen()"></button>
 
     <script>
         // Initialize Ruffle
         const ruffle = window.RufflePlayer.newest();
-        const ruffleContainer = document.getElementById('swf-container');
+        const ruffleContainer = document.getElementById('ruffle-player');
 
         // Handle file input
         document.getElementById('file-input').addEventListener('change', function (event) {
@@ -127,25 +132,27 @@
 
         // Toggle fullscreen
         function toggleFullscreen() {
+            const container = document.getElementById('swf-container');
             if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
+                container.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message}`);
+                });
             } else {
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
                 }
             }
         }
-
-function open() {
-window.open('https://github.com/Joercat/swfarchive.git');
-}
     </script>
 
-    <button onclick="open()" class="download">
+    <button class="download">
         <a href="https://github.com/Joercat/swfarchive.git" style="color: inherit; text-decoration: none;">
             <h3>Click here if you need an SWF file.</h3>
         </a>
     </button>
 
+    <footer>
+        <p>&copy; 2024 Sigma Games. All rights reserved.</p>
+    </footer>
 </body>
 </html>
