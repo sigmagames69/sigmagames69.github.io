@@ -19,6 +19,15 @@
         h1 {
             font-size: 50px;
             margin-bottom: 20px;
+            display: flex;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+        }
+
+        h1 img {
+            width: 100px; /* Set width to 100px */
+            height: 100px; /* Set height to 100px */
+            margin-right: 20px; /* Space between image and text */
         }
 
         h2 {
@@ -40,17 +49,17 @@
         a:hover {
             text-decoration: underline;
         }
-
     </style>
 </head>
 
 <body>
-    <h1>404 Not Found</h1>
-    <br>
+    <h1>
+        <img src="img/favicon.png" alt="Favicon">
+        404 Not Found
+    </h1>
     <h2>Oops! The page you are looking for doesn't exist.</h2>
     <p>It might have been removed, had its name changed, or is temporarily unavailable.</p>
-    <p>You can go back to the <a href="index.html">homepage</a> or wait for the page to be available again</p>
-    <br>
+    <p>You can go back to the <a href="index.html">homepage</a> or wait for the page to be available again.</p>
     <hr>
 </body>
 
