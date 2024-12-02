@@ -1,6 +1,6 @@
     const data = [
-      { name: "Home", url: "/https://sigmagames69.github.io", query: "home" },
-      { name: "Home", url: "/https://sigmagames69.github.io", query: "back" },
+      { name: "Home", url: "https://sigmagames69.github.io", query: "home" },
+      { name: "Home", url: "https://sigmagames69.github.io", query: "back" },
         
       { name: "Drive Mad", url: "/drive-mad", query: "drive mad" },
       { name: "Drive Mad", url: "/drive-mad", query: "monster truck" },
@@ -161,7 +161,6 @@
       { name: "Bitlife", url: "/bitlife", query: "bitlife" },
       { name: "Bitlife", url: "/bitlife", query: "bit life" },
 
-
       { name: "We become what we behold", url: "/we-become-what-we-behold", query: "we become what we behold" },
       { name: "We become what we behold", url: "/we-become-what-we-behold", query: "you become what you behold" },
 
@@ -194,4 +193,8 @@
       { name: "Gladihoppers", url: "/gladihoppers", query: "gladihoppers" },   
       { name: "Gladihoppers", url: "/gladihoppers", query: "gladehoppers" },   
       { name: "Gladihoppers", url: "/gladihoppers", query: "gladiator game" },   
+
+      { name: "Home", url: "/water-color-sort", query: "water seperating" },
+      { name: "Home", url: "/water-color-sort", query: "water seperate" },
+      { name: "Home", url: "/water-color-sort", query: "water sort" },
     ];
