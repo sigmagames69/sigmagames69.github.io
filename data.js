@@ -161,6 +161,10 @@
       { name: "Run 3", url: "run3", query: "alien run" },
       { name: "Run 3", url: "run3", query: "run 3" },
 
+      { name: "Ant Art Tycoon", url: "ant-art-tycoon", query: "ants" },
+      { name: "Ant Art Tycoon", url: "ant-art-tycoon", query: "ant art" },
+      { name: "Ant Art Tycoon", url: "ant-art-tycoon", query: "ant art tycoon" },
+
       { name: "Idle ants", url: "idle-ants", query: "ants" },
       { name: "Idle ants", url: "idle-ants", query: "idle ants" },
 
