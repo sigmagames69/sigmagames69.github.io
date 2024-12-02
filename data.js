@@ -191,4 +191,8 @@
       { name: "Gladihoppers", url: "gladihoppers", query: "gladihoppers" },   
       { name: "Gladihoppers", url: "gladihoppers", query: "gladehoppers" },   
       { name: "Gladihoppers", url: "gladihoppers", query: "gladiator game" },  
+
+      { name: "Water color sort", url: "water-color-sort", query: "water seperating" },
+      { name: "Water color sort", url: "water-color-sort", query: "water seperate" },
+      { name: "Water color sort", url: "water-color-sort", query: "water sort" },
     ];
