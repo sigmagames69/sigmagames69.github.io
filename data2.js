@@ -198,4 +198,6 @@
       { name: "Water color sort", url: "/water-color-sort", query: "water seperate" },
       { name: "Water color sort", url: "/water-color-sort", query: "water sort" },
       { name: "Water color sort", url: "/water-color-sort", query: "water color sort" },
+
+      { name: "Drift Hunters", url: "/drift-hunters", query: "drift hunters" },
     ];
