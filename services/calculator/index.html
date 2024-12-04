@@ -85,8 +85,11 @@
         <tr>
             <td><input type="button" value="0" onclick="appendValue('0')" /></td>
             <td><input type="button" value="." onclick="appendValue('.')" /></td>
-            <td><input type="button" value="1/2" onclick="appendValue('1/2')" /></td>
-            <td><input type="button" value="=" onclick="calculate()" /></td>
+            <td><input type="button" value="(" onclick="appendValue('(')" /></td>
+            <td><input type="button" value=")" onclick="appendValue(')')" /></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="button" value="=" onclick="calculate()" /></td>
         </tr>
     </table>
 
@@ -116,7 +119,7 @@
         // Allow keyboard input
         document.getElementById("calculator").addEventListener("keyup", function (event) {
             const key = event.key;
-            if ("0123456789+-×÷√^.".includes(key)) {
+            if ("0123456789+-×÷√^()".includes(key)) {
                 appendValue(key.replace('×', '*').replace('÷', '/').replace('^', '^'));
             } else if (event.key === "Enter") {
                 calculate();
