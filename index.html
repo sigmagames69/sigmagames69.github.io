@@ -79,9 +79,10 @@
             width: 300px;
             padding: 15px;
             color: #39FF14;
-            text-align: left;
+            text-align: center;
             transition: transform 0.3s;
             position: relative; /* For positioning the plus sign */
+            min-height: 200px; /* Set a minimum height for the card */
         }
         .game-card:hover {
             transform: translateY(-5px);
@@ -181,10 +182,27 @@
                 <div class="plus-sign" onclick="bookmarkGame('Snow Rider 3D', '/snow-rider-3d', event)">+</div>
             </div>
         </div>
+        
+        <h2>Your Bookmarked Games</h2>
+        <div class="game-cards" id="bookmarkedGames">
+            <div class="game-card" id="bookmark1">
+                <div class="plus-sign" onclick="searchGame(event)">+</div>
+            </div>
+            <div class="game-card" id="bookmark2">
+                <div class="plus-sign" onclick="searchGame(event)">+</div>
+            </div>
+            <div class="game-card" id="bookmark3">
+                <div class="plus-sign" onclick="searchGame(event)">+</div>
+            </div>
+        </div>
         <br>
     </div>
 
     <a href="change-log.html" target="_blank" class="change-log-link">View Change Log</a> <!-- Change log link -->
+
+    <footer>
+        <p>&copy; 2024 Sigma Games. All rights reserved.</p>
+    </footer>
 
     <script src="data.js"></script>
     <script>
@@ -210,8 +228,62 @@
             } else {
                 alert(`${name} is already bookmarked.`);
             }
+            displayBookmarkedGames(); // Refresh the bookmarked games display
         }
-        
+
+                function displayBookmarkedGames() {
+            const bookmarkedGamesContainer = document.getElementById('bookmarkedGames');
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || {};
+            
+            // Clear existing bookmarks
+            bookmarkedGamesContainer.innerHTML = '';
+
+            // Create cards for each bookmarked game
+            let index = 1; // To track which bookmark card to fill
+            for (const [name, url] of Object.entries(bookmarks)) {
+                const card = document.createElement('div');
+                card.className = 'game-card';
+                card.innerHTML = `
+                    <h3>${name}</h3>
+                    <p>Bookmark for ${name} game.</p>
+                    <a href="${url}" target="_blank">Play Now</a>
+                    <div class="plus-sign" onclick="removeBookmark('${name}', event)">-</div>
+                `;
+                bookmarkedGamesContainer.appendChild(card);
+                index++;
+            }
+
+            // If there are less than 3 bookmarks, fill the remaining cards with plus signs
+            while (index <= 3) {
+                const emptyCard = document.createElement('div');
+                emptyCard.className = 'game-card';
+                emptyCard.innerHTML = `<div class="plus-sign" onclick="searchGame(event)">+</div>`;
+                bookmarkedGamesContainer.appendChild(emptyCard);
+                index++;
+            }
+        }
+
+        function removeBookmark(name, event) {
+            event.stopPropagation(); // Prevent triggering the card click
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || {};
+            delete bookmarks[name]; // Remove the bookmark
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks)); // Update localStorage
+            alert(`${name} has been removed from bookmarks.`);
+            displayBookmarkedGames(); // Refresh the bookmarked games display
+        }
+
+        function searchGame(event) {
+            const input = prompt("Enter the game name to bookmark:");
+            if (input) {
+                const game = data.find(item => item.name.toLowerCase() === input.toLowerCase());
+                if (game) {
+                    bookmarkGame(game.name, game.url, event);
+                } else {
+                    alert("Game not found. Please try again.");
+                }
+            }
+        }
+
         function handleSearch() {
             const input = document.getElementById('searchBar').value.toLowerCase();
             const resultsContainer = document.getElementById('resultsContainer');
@@ -252,6 +324,9 @@
             greeting = 'Hello';
         }
         place.innerHTML = '<span>' + greeting + ' and welcome to Sigma Games!</span>';
+
+        // Display bookmarks on page load
+        displayBookmarkedGames();
     </script>
 </body>
 </html>
