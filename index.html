@@ -81,6 +81,7 @@
             color: #39FF14;
             text-align: left;
             transition: transform 0.3s;
+            position: relative; /* For positioning the plus sign */
         }
         .game-card:hover {
             transform: translateY(-5px);
@@ -104,6 +105,15 @@
             text-decoration: none;
             color: #55ff33;
             font-weight: bold;
+        }
+        .plus-sign {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            color: #39FF14;
+            cursor: pointer;
         }
         footer {
             background-color: #1e1e1e;
@@ -154,28 +164,27 @@
                 <h3>Retro Bowl</h3>
                 <p>Retro Bowl is an American football video game developed by New Star Games for iOS, Android, and unblocked online.</p>
                 <a href="retro-bowl" target="_blank">Play Now</a>
+                <div class="plus-sign" onclick="bookmarkGame('Retro Bowl', '/retro-bowl', event)">+</div>
             </div>
             <div class="game-card" onclick="subwaySurfers()">
                 <img src="img/ss.jpeg" alt="Subway Surfers">
                 <h3>Subway Surfers</h3>
                 <p>Subway Surfers is a 2012 endless runner mobile game co-developed by Kiloo and SYBO Games, private companies based in Denmark.</p>
                 <a href="subway-surfers" target="_blank">Play Now</a>
+                <div class="plus-sign" onclick="bookmarkGame('Subway Surfers', '/subway-surfers', event)">+</div>
             </div>
             <div class="game-card" onclick="snowRider3D()">
                 <img src="img/sr3d.jpeg" alt="Snow Rider 3D">
                 <h3>Snow Rider 3D</h3>
                 <p>The world in Snow Rider is extremely lively, with unreal objects. You will control a sled through a series of hazards in dangerous snowy mountains.</p>
                 <a href="snow-rider-3d" target="_blank">Play Now</a>
+                <div class="plus-sign" onclick="bookmarkGame('Snow Rider 3D', '/snow-rider-3d', event)">+</div>
             </div>
         </div>
         <br>
     </div>
 
     <a href="change-log.html" target="_blank" class="change-log-link">View Change Log</a> <!-- Change log link -->
-
-    <footer>
-        <p>&copy; 2024 Sigma Games. All rights reserved.</p>
-    </footer>
 
     <script src="data.js"></script>
     <script>
@@ -189,6 +198,18 @@
 
         function snowRider3D() {
             window.open('snow-rider-3d', '_blank');
+        }
+
+        function bookmarkGame(name, url, event) {
+            event.stopPropagation(); // Prevent triggering the card click
+            const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || {};
+            if (!bookmarks[name]) {
+                bookmarks[name] = url;
+                localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+                alert(`${name} has been bookmarked!`);
+            } else {
+                alert(`${name} is already bookmarked.`);
+            }
         }
         
         function handleSearch() {
