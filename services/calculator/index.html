@@ -61,7 +61,7 @@
         <tr>
             <td><input type="button" value="C" onclick="clearResult()" /></td>
             <td><input type="button" value="√" onclick="appendValue('sqrt(')" /></td>
-            <td><input type="button" value="^" onclick="appendValue('**')" /></td>
+            <td><input type="button" value="^" onclick="appendValue('^')" /></td>
             <td><input type="button" value="÷" onclick="appendValue('/')" /></td>
         </tr>
         <tr>
@@ -117,7 +117,7 @@
         document.getElementById("calculator").addEventListener("keyup", function (event) {
             const key = event.key;
             if ("0123456789+-×÷√^.".includes(key)) {
-                appendValue(key.replace('×', '*').replace('÷', '/').replace('^', '**'));
+                appendValue(key.replace('×', '*').replace('÷', '/').replace('^', '^'));
             } else if (event.key === "Enter") {
                 calculate();
             } else if (event.key === "Escape") {
