@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            border: 2px solid #fff;
+            border-collapse: collapse;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        input[type="button"] {
+            width: 100%;
+            padding: 20px;
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            border: 2px solid #000;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background-color: blue;
+        }
+
+        input[type="text"] {
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            border: 2px solid #000;
+            border-radius: 5px;
+            width: calc(100% - 42px);
+            background-color: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="calculator">
+        <tr>
+            <td colspan="4"><input type="text" id="result" readonly></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="C" onclick="clearResult()" /></td>
+            <td><input type="button" value="√" onclick="appendValue('sqrt(')" /></td>
+            <td><input type="button" value="^" onclick="appendValue('**')" /></td>
+            <td><input type="button" value="÷" onclick="appendValue('/')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" onclick="appendValue('1')" /></td>
+            <td><input type="button" value="2" onclick="appendValue('2')" /></td>
+            <td><input type="button" value="3" onclick="appendValue('3')" /></td>
+            <td><input type="button" value="×" onclick="appendValue('*')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="appendValue('4')" /></td>
+            <td><input type="button" value="5" onclick="appendValue('5')" /></td>
+            <td><input type="button" value="6" onclick="appendValue('6')" /></td>
+            <td><input type="button" value="-" onclick="appendValue('-')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" onclick="appendValue('7')" /></td>
+            <td><input type="button" value="8" onclick="appendValue('8')" /></td>
+            <td><input type="button" value="9" onclick="appendValue('9')" /></td>
+            <td><input type="button" value="+" onclick="appendValue('+')" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0" onclick="appendValue('0')" /></td>
+            <td><input type="button" value="." onclick="appendValue('.')" /></td>
+            <td><input type="button" value="1/2" onclick="appendValue('1/2')" /></td>
+            <td><input type="button" value="=" onclick="calculate()" /></td>
+        </tr>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js" 
+            integrity="sha512-iphNRh6dPbeuPGIrQbCdbBF/qcqadKWLa35YPVfMZMHBSI6PLJh1om2xCTWhpVpmUyb4IvVS9iYnnYMkleVXLA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        function appendValue(val) {
+            document.getElementById("result").value += val;
+        }
+
+        function clearResult() {
+            document.getElementById("result").value = "";
+        }
+
+        function calculate() {
+            const expression = document.getElementById("result").value;
+            try {
+                // Evaluate the expression using math.js
+                const result = math.evaluate(expression);
+                document.getElementById("result").value = result;
+            } catch (error) {
+                alert("Invalid Expression");
+            }
+        }
+
+        // Allow keyboard input
+        document.getElementById("calculator").addEventListener("keyup", function (event) {
+            const key = event.key;
+            if ("0123456789+-×÷√^.".includes(key)) {
+                appendValue(key.replace('×', '*').replace('÷', '/').replace('^', '**'));
+            } else if (event.key === "Enter") {
+                calculate();
+            } else if (event.key === "Escape") {
+                clearResult();
+            }
+        });
+    </script>
+</body>
+
+</html>
