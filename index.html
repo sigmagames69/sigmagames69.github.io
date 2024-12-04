@@ -200,9 +200,6 @@
 
     <a href="change-log.html" target="_blank" class="change-log-link">View Change Log</a> <!-- Change log link -->
 
-    <footer>
-        <p>&copy; 2024 Sigma Games. All rights reserved.</p>
-    </footer>
 
     <script src="data.js"></script>
     <script>
@@ -247,7 +244,7 @@
                     <h3>${name}</h3>
                     <p>Bookmark for ${name} game.</p>
                     <a href="${url}" target="_blank">Play Now</a>
-                    <div class="plus-sign" onclick="removeBookmark('${name}', event)">-</div>
+                    <div class="plus-sign" onclick="removeBookmark('${name}', event)">Remove ${name}</div>
                 `;
                 bookmarkedGamesContainer.appendChild(card);
                 index++;
