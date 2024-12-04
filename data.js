@@ -4,6 +4,9 @@
       { name: "Blocky Browser", url: "services/browser", query: "browser" },
       { name: "Blocky Browser", url: "services/browser", query: "blocky browser" },
 
+      { name: "Calculator", url: "services/calculator", query: "math" },
+      { name: "Calculator", url: "services/calculator", query: "calculator" },
+
       { name: "Drive Mad", url: "drive-mad", query: "drive mad" },
       { name: "Drive Mad", url: "drive-mad", query: "monster truck" },
 
