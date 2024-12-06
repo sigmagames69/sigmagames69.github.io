@@ -10,6 +10,9 @@
       { name: "Blocky Browser", url: "/services/browser", query: "browser" },
       { name: "Blocky Browser", url: "/services/browser", query: "blocky browser" },
 
+      { name: "Boxing Random", url: "/boxing-random", query: "boxing random" },
+      { name: "Boxing Random", url: "/boxing-random", query: "boxing" },
+
       { name: "Calculator", url: "/services/calculator", query: "math" },
       { name: "Calculator", url: "/services/calculator", query: "calculator" },
 
