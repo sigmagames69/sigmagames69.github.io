@@ -13,6 +13,9 @@
       { name: "Deal or no Deal", url: "deal-or-no-deal", query: "deal" },
       { name: "Deal or no Deal", url: "deal-or-no-deal", query: "deal or no deal" },
 
+      { name: "Boxing Random", url: "boxing-random", query: "boxing random" },
+      { name: "Boxing Random", url: "boxing-random", query: "boxing" },
+
       { name: "OvO", url: "ovo", query: "ovo" },
 
       { name: "Angry birds", url: "angry-birds", query: "angry birds" },
