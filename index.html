@@ -241,10 +241,12 @@
                 const card = document.createElement('div');
                 card.className = 'game-card';
                 card.innerHTML = `
+                    <div onclick="window.open('${url}', '_blank')">
                     <h3>${name}</h3>
                     <p>Bookmark for ${name} game.</p>
                     <a href="${url}" target="_blank">Play Now</a>
-                    <div onclick="window.open('${url}', '_blank')" class="plus-sign" onclick="removeBookmark('${name}', event)"><h4>Remove ${name}</h4></div>
+                    <div class="plus-sign" onclick="removeBookmark('${name}', event)"><h4>Remove</h4></div>
+                    </div>
                 `;
                 bookmarkedGamesContainer.appendChild(card);
                 index++;
