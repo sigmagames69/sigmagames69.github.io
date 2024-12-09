@@ -244,7 +244,7 @@
                     <h3>${name}</h3>
                     <p>Bookmark for ${name} game.</p>
                     <a href="${url}" target="_blank">Play Now</a>
-                    <div class="plus-sign" onclick="removeBookmark('${name}', event)"><p>Remove</p></div>
+                    <div onclick="window.open('${url}', '_blank')" class="plus-sign" onclick="removeBookmark('${name}', event)"><h4>Remove ${name}</h4></div>
                 `;
                 bookmarkedGamesContainer.appendChild(card);
                 index++;
