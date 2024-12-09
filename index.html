@@ -244,13 +244,12 @@
                     <h3>${name}</h3>
                     <p>Bookmark for ${name} game.</p>
                     <a href="${url}" target="_blank">Play Now</a>
-                    <div class="plus-sign" onclick="removeBookmark('${name}', event)">Remove ${name}</div>
+                    <div class="plus-sign" onclick="removeBookmark('${name}', event)"><p>Remove</p></div>
                 `;
                 bookmarkedGamesContainer.appendChild(card);
                 index++;
             }
 
-            // If there are less than 3 bookmarks, fill the remaining cards with plus signs
             while (index <= 3) {
                 const emptyCard = document.createElement('div');
                 emptyCard.className = 'game-card';
