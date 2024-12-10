@@ -32,6 +32,9 @@ const data = [
 
       { name: "Retro Bowl", url: "/retro-bowl", query: "retro bowl" },
       { name: "Retro Bowl", url: "/retro-bowl", query: "retro bowl college" },
+      { name: "Retro Bowl", url: "/retro-bowl", query: "retro bowl NFL" },
+      { name: "Retro Bowl college", url: "/retro-bowl-college", query: "retro bowl" },
+      { name: "Retro Bowl college", url: "/retro-bowl-college", query: "retro bowl college" },
 
       { name: "Snow Rider 3D", url: "/snow-rider-3d", query: "snow rider 3d" },
       { name: "Snow Rider 3D", url: "/snow-rider-3d", query: "snow rider" },
