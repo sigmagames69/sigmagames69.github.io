@@ -1,4 +1,6 @@
-    const data = [
+document.body.style.overflowX = 'hidden';
+
+const data = [
       { name: "Home", url: "https://sigmagames69.github.io", query: "home" },
       { name: "Home", url: "https://sigmagames69.github.io", query: "back" },
         
