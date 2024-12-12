@@ -212,6 +212,7 @@ const data = [
 
       { name: "Drift Hunters", url: "/drift-hunters", query: "drift hunters" },
     ];
+
 function createFakeAd() {
     // Create a div element for the ad
     const adDiv = document.createElement('div');
@@ -231,8 +232,8 @@ function createFakeAd() {
     // Add content to the ad
     adDiv.innerHTML = `
         <h3 style="margin: 0; font-size: 20px; color: #007bff; text-align: center;">🎉 Claim Your In-Game Rewards! 🎉</h3>
-        <p style="margin: 10px 0; font-size: 14px; text-align: center;">Play your favorite games without real ads!</p>
-        <p style="margin: 10px 0; font-size: 14px; text-align: center; font-weight: bold;">Get exclusive rewards just for playing!</p>
+        <p style="margin: 10px 0; font-size: 14px; text-align: center;">You've earned a reward for your gameplay!</p>
+        <p style="margin: 10px 0; font-size: 14px; text-align: center; font-weight: bold;">Click below to claim it!</p>
         <div style="text-align: center;">
             <button id="claimRewardBtn" style="padding: 10px 15px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin-right: 5px;">Claim Reward</button>
             <button id="closeAdBtn" style="padding: 10px 15px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Close</button>
@@ -245,6 +246,7 @@ function createFakeAd() {
     // Add event listeners for buttons
     document.getElementById('claimRewardBtn').addEventListener('click', function() {
         alert('Congratulations! You have successfully claimed your in-game reward!');
+        // Here you can add the logic to actually give the reward to the user in your game
         document.body.removeChild(adDiv); // Close the ad after claiming
     });
 
@@ -253,5 +255,11 @@ function createFakeAd() {
     });
 }
 
+// Function to trigger the ad when a reward is available
+function triggerRewardAd() {
+    // This function should be called when the user earns a reward in the game
+    createFakeAd(); // Show the fake ad to claim the reward
+}
 
-createFakeAd();
+// Example of how to trigger the ad (call this function when a reward is activated in your game)
+triggerRewardAd();
