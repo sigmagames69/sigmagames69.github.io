@@ -125,9 +125,9 @@
             margin-top: 20px;
         }
         .change-log-link {
-            position: fixed; 
-            bottom: 20px; 
-            right: 20px; 
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
             background-color: #454545;
             color: #39FF14;
             padding: 10px;
@@ -135,196 +135,257 @@
             text-decoration: none;
             font-size: 14px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-            z-index: 1000; 
+            z-index: 1000;
         }
         .change-log-link:hover {
             background-color: #55ff33;
             color: #000;
         }
+
+        /* Feedback section styles */
+        .feedback-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1e1e1e;
+            border: 2px solid #39FF14;
+            border-radius: 5px;
+            padding: 10px;
+            color: #39FF14;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .feedback-button {
+            background-color: #454545;
+            color: #39FF14;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .feedback-button:hover {
+            background-color: #55ff33;
+            color: #000;
+        }
+        .feedback-count {
+            margin-top: 10px;
+            font-size: 14px;
+        }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>Sigma Games</h1>
-        <div class="search-container">
-            <input type="text" class="search-bar" id="searchBar" placeholder=" Search our free games and services..." oninput="handleSearch()">
-            <div class="results-container" id="resultsContainer"></div>
-        </div>
-    </header>
-
-    <div class="main-content">
-        <div id="a" class="greeting-message"></div>
-        <p>Here at Sigma Games we are dedicated to providing you with the latest games, search browsers and other free services.</p>
-        <p>This site will always be no-cost and ad-free so the games are free to use without random ad breaks.</p>
-        <br>
-        <h2>Popular Unblocked Games</h2>
-        <div class="game-cards">
-            <div class="game-card" onclick="retroBowl()">
-                <img src="img/rb.png" alt="Retro Bowl">
-                <h3>Retro Bowl</h3>
-                <p>Retro Bowl is an American football video game developed by New Star Games for iOS, Android, and unblocked online.</p>
-                <a href="retro-bowl" target="_blank">Play Now</a>
-                <div class="plus-sign" onclick="bookmarkGame('Retro Bowl', '/retro-bowl', event)">+</div>
-            </div>
-            <div class="game-card" onclick="subwaySurfers()">
-                <img src="img/ss.jpeg" alt="Subway Surfers">
-                <h3>Subway Surfers</h3>
-                <p>Subway Surfers is a 2012 endless runner mobile game co-developed by Kiloo and SYBO Games, private companies based in Denmark.</p>
-                <a href="subway-surfers" target="_blank">Play Now</a>
-                <div class="plus-sign" onclick="bookmarkGame('Subway Surfers', '/subway-surfers', event)">+</div>
-            </div>
-            <div class="game-card" onclick="snowRider3D()">
-                <img src="img/sr3d.jpeg" alt="Snow Rider 3D">
-                <h3>Snow Rider 3D</h3>
-                <p>The world in Snow Rider is extremely lively, with unreal objects. You will control a sled through a series of hazards in dangerous snowy mountains.</p>
-                <a href="snow-rider-3d" target="_blank">Play Now</a>
-                <div class="plus-sign" onclick="bookmarkGame('Snow Rider 3D', '/snow-rider-3d', event)">+</div>
-            </div>
-        </div>
-        <br>
-        <h2>Your Bookmarked Games</h2>
-        <div class="game-cards" id="bookmarkedGames">
-            <div class="game-card" id="bookmark1">
-                <div class="plus-sign" onclick="searchGame(event)">+</div>
-            </div>
-            <div class="game-card" id="bookmark2">
-                <div class="plus-sign" onclick="searchGame(event)">+</div>
-            </div>
-            <div class="game-card" id="bookmark3">
-                <div class="plus-sign" onclick="searchGame(event)">+</div>
-            </div>
-        </div>
-        <br>
+<header>
+    <h1>Sigma Games</h1>
+    <div class="search-container">
+        <input type="text" class="search-bar" id="searchBar" placeholder=" Search our free games and services..." oninput="handleSearch()">
+        <div class="results-container" id="resultsContainer"></div>
     </div>
+</header>
 
-    <a href="change-log.html" target="_blank" class="change-log-link">View Change Log</a> <!-- Change log link -->
+<div class="main-content">
+    <div id="a" class="greeting-message"></div>
+    <p>Here at Sigma Games we are dedicated to providing you with the latest games, search browsers and other free services.</p>
+    <p>This site will always be no-cost and ad-free so the games are free to use without random ad breaks.</p>
+    <br>
+    <h2>Popular Unblocked Games</h2>
+    <div class="game-cards">
+        <div class="game-card" onclick="retroBowl()">
+            <img src="img/rb.png" alt="Retro Bowl">
+            <h3>Retro Bowl</h3>
+            <p>Retro Bowl is an American football video game developed by New Star Games for iOS, Android, and unblocked online.</p>
+            <a href="retro-bowl" target="_blank">Play Now</a>
+            <div class="plus-sign" onclick="bookmarkGame('Retro Bowl', '/retro-bowl', event)">+</div>
+        </div>
+        <div class="game-card" onclick="subwaySurfers()">
+            <img src="img/ss.jpeg" alt="Subway Surfers">
+            <h3>Subway Surfers</h3>
+            <p>Subway Surfers is a 2012 endless runner mobile game co-developed by Kiloo and SYBO Games, private companies based in Denmark.</p>
+            <a href="subway-surfers" target="_blank">Play Now</a>
+            <div class="plus-sign" onclick="bookmarkGame('Subway Surfers', '/subway-surfers', event)">+</div>
+        </div>
+        <div class="game-card" onclick="snowRider3D()">
+            <img src="img/sr3d.jpeg" alt="Snow Rider 3D">
+            <h3>Snow Rider 3D</h3>
+            <p>The world in Snow Rider is extremely lively, with unreal objects. You will control a sled through a series of hazards in dangerous snowy mountains.</p>
+            <a href="snow-rider-3d" target="_blank">Play Now</a>
+            <div class="plus-sign" onclick="bookmarkGame('Snow Rider 3D', '/snow-rider-3d', event)">+</div>
+        </div>
+    </div>
+    <br>
+    <h2>Your Bookmarked Games</h2>
+    <div class="game-cards" id="bookmarkedGames">
+        <div class="game-card" id="bookmark1">
+            <div class="plus-sign" onclick="searchGame(event)">+</div>
+        </div>
+        <div class="game-card" id="bookmark2">
+            <div class="plus-sign" onclick="searchGame(event)">+</div>
+        </div>
+        <div class="game-card" id="bookmark3">
+            <div class="plus-sign" onclick="searchGame(event)">+</div>
+        </div>
+    </div>
+    <br>
+</div>
 
+<!-- Feedback section -->
+<div class="feedback-container">
+    <button id="likeButton" class="feedback-button">👍 Like</button>
+    <button id="dislikeButton" class="feedback-button">👎 Dislike</button>
+    <div id="feedbackCount" class="feedback-count">Likes: 0 | Dislikes: 0</div>
+</div>
 
-    <script src="data.js"></script>
-    <script>
-        function retroBowl() {
-            window.open('retro-bowl', '_blank');
+<a href="change-log.html" target="_blank" class="change-log-link">View Change Log</a> <!-- Change log link -->
+
+<script src="data.js"></script>
+<script>
+    function retroBowl() {
+        window.open('retro-bowl', '_blank');
+    }
+
+    function subwaySurfers() {
+        window.open('subway-surfers', '_blank');
+    }
+
+    function snowRider3D() {
+        window.open('snow-rider-3d', '_blank');
+    }
+
+    function bookmarkGame(name, url, event) {
+        event.stopPropagation(); // Prevent triggering the card click
+        const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || {};
+        if (!bookmarks[name]) {
+            bookmarks[name] = url;
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+            alert(`${name} has been bookmarked!`);
+        } else {
+            alert(`${name} is already bookmarked.`);
         }
-        
-        function subwaySurfers() {
-            window.open('subway-surfers', '_blank');
-        }
+        displayBookmarkedGames(); // Refresh the bookmarked games display
+    }
 
-        function snowRider3D() {
-            window.open('snow-rider-3d', '_blank');
-        }
+    function displayBookmarkedGames() {
+        const bookmarkedGamesContainer = document.getElementById('bookmarkedGames');
+        const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || {};
 
-        function bookmarkGame(name, url, event) {
-            event.stopPropagation(); // Prevent triggering the card click
-            const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || {};
-            if (!bookmarks[name]) {
-                bookmarks[name] = url;
-                localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-                alert(`${name} has been bookmarked!`);
-            } else {
-                alert(`${name} is already bookmarked.`);
-            }
-            displayBookmarkedGames(); // Refresh the bookmarked games display
-        }
+        // Clear existing bookmarks
+        bookmarkedGamesContainer.innerHTML = '';
 
-                function displayBookmarkedGames() {
-            const bookmarkedGamesContainer = document.getElementById('bookmarkedGames');
-            const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || {};
-            
-            // Clear existing bookmarks
-            bookmarkedGamesContainer.innerHTML = '';
-
-            // Create cards for each bookmarked game
-            let index = 1; // To track which bookmark card to fill
-            for (const [name, url] of Object.entries(bookmarks)) {
-                const card = document.createElement('div');
-                card.className = 'game-card';
-                card.innerHTML = `
-                    <div onclick="window.open('${url}', '_blank')">
+        // Create cards for each bookmarked game
+        let index = 1; // To track which bookmark card to fill
+        for (const [name, url] of Object.entries(bookmarks)) {
+            const card = document.createElement('div');
+            card.className = 'game-card';
+            card.innerHTML = `
+                <div onclick="window.open('${url}', '_blank')">
                     <h3>${name}</h3>
                     <p>Bookmark for ${name} game.</p>
                     <a href="${url}" target="_blank">Play Now</a>
                     <div class="plus-sign" onclick="removeBookmark('${name}', event)"><h4>Remove</h4></div>
-                    </div>
-                `;
-                bookmarkedGamesContainer.appendChild(card);
-                index++;
-            }
-
-            while (index <= 3) {
-                const emptyCard = document.createElement('div');
-                emptyCard.className = 'game-card';
-                emptyCard.innerHTML = `<div class="plus-sign" onclick="searchGame(event)">+</div>`;
-                bookmarkedGamesContainer.appendChild(emptyCard);
-                index++;
-            }
+                </div>
+            `;
+            bookmarkedGamesContainer.appendChild(card);
+            index++;
         }
 
-        function removeBookmark(name, event) {
-            event.stopPropagation(); // Prevent triggering the card click
-            const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || {};
-            delete bookmarks[name]; // Remove the bookmark
-            localStorage.setItem('bookmarks', JSON.stringify(bookmarks)); // Update localStorage
-            alert(`${name} has been removed from bookmarks.`);
-            displayBookmarkedGames(); // Refresh the bookmarked games display
+        while (index <= 3) {
+            const emptyCard = document.createElement('div');
+            emptyCard.className = 'game-card';
+            emptyCard.innerHTML = `<div class="plus-sign" onclick="searchGame(event)">+</div>`;
+            bookmarkedGamesContainer.appendChild(emptyCard);
+            index++;
         }
+    }
 
-        function searchGame(event) {
-            const input = prompt("Enter the game name to bookmark:");
-            if (input) {
-                const game = data.find(item => item.name.toLowerCase() === input.toLowerCase());
-                if (game) {
-                    bookmarkGame(game.name, game.url, event);
-                } else {
-                    alert("Game not found. Please try again.");
-                }
-            }
-        }
+    function removeBookmark(name, event) {
+        event.stopPropagation(); // Prevent triggering the card click
+        const bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || {};
+        delete bookmarks[name]; // Remove the bookmark
+        localStorage.setItem('bookmarks', JSON.stringify(bookmarks)); // Update localStorage
+        alert(`${name} has been removed from bookmarks.`);
+        displayBookmarkedGames(); // Refresh the bookmarked games display
+    }
 
-        function handleSearch() {
-            const input = document.getElementById('searchBar').value.toLowerCase();
-            const resultsContainer = document.getElementById('resultsContainer');
-            resultsContainer.innerHTML = '';
-            if (input.trim() === '') {
-                resultsContainer.style.display = 'none';
-                return;
-            }
-            const filteredResults = data.filter(item => item.query.toLowerCase().includes(input));
-            if (filteredResults.length > 0) {
-                resultsContainer.style.display = 'block';
-                filteredResults.forEach(item => {
-                    const resultItem = document.createElement('div');
-                    resultItem.textContent = item.name;
-                    resultItem.classList.add('result-item');
-                    resultItem.onclick = () => {
-                        window.open(item.url, '_blank');
-                        resultsContainer.style.display = 'none';
-                    };
-                    resultsContainer.appendChild(resultItem);
-                });
+    function searchGame(event) {
+        const input = prompt("Enter the game name to bookmark:");
+        if (input) {
+            const game = data.find(item => item.name.toLowerCase() === input.toLowerCase());
+            if (game) {
+                bookmarkGame(game.name, game.url, event);
             } else {
-                resultsContainer.style.display = 'none';
+                alert("Game not found. Please try again.");
             }
         }
+    }
 
-        const place = document.getElementById("a");
-        let today = new Date();
-        let hourNow = today.getHours();
-        let greeting;
-        if (hourNow > 18) {
-            greeting = 'Good evening!';
-        } else if (hourNow > 12) {
-            greeting = 'Good afternoon!';
-        } else if (hourNow > 0) {
-            greeting = 'Good morning!';
-        } else {
-            greeting = 'Hello';
+    function handleSearch() {
+        const input = document.getElementById('searchBar').value.toLowerCase();
+        const resultsContainer = document.getElementById('resultsContainer');
+        resultsContainer.innerHTML = '';
+        if (input.trim() === '') {
+            resultsContainer.style.display = 'none';
+            return;
         }
-        place.innerHTML = '<span>' + greeting + ' and welcome to Sigma Games!</span>';
+        const filteredResults = data.filter(item => item.query.toLowerCase().includes(input));
+        if (filteredResults.length > 0) {
+            resultsContainer.style.display = 'block';
+            filteredResults.forEach(item => {
+                const resultItem = document.createElement('div');
+                resultItem.textContent = item.name;
+                resultItem.classList.add('result-item');
+                resultItem.onclick = () => {
+                    window.open(item.url, '_blank');
+                    resultsContainer.style.display = 'none';
+                };
+                resultsContainer.appendChild(resultItem);
+            });
+        } else {
+            resultsContainer.style.display = 'none';
+        }
+    }
 
-        // Display bookmarks on page load
-        displayBookmarkedGames();
-    </script>
+    const place = document.getElementById("a");
+    let today = new Date();
+    let hourNow = today.getHours();
+    let greeting;
+    if (hourNow > 18) {
+        greeting = 'Good evening!';
+    } else if (hourNow > 12) {
+        greeting = 'Good afternoon!';
+    } else if (hourNow > 0) {
+        greeting = 'Good morning!';
+    } else {
+        greeting = 'Hello';
+    }
+    place.innerHTML = '<span>' + greeting + ' and welcome to Sigma Games!</span>';
+
+    // Display bookmarks on page load
+    displayBookmarkedGames();
+
+    // Feedback functionality
+    let likeCount = localStorage.getItem('likeCount') ? parseInt(localStorage.getItem('likeCount')) : 0;
+    let dislikeCount = localStorage.getItem('dislikeCount') ? parseInt(localStorage.getItem('dislikeCount')) : 0;
+
+    // Update the counts display on page load
+    updateFeedbackCount();
+
+    document.getElementById('likeButton').addEventListener('click', function() {
+        likeCount++;
+        localStorage.setItem('likeCount', likeCount); // Save to localStorage
+        updateFeedbackCount();
+    });
+
+    document.getElementById('dislikeButton').addEventListener('click', function() {
+        dislikeCount++;
+        localStorage.setItem('dislikeCount', dislikeCount); // Save to localStorage
+        updateFeedbackCount();
+    });
+
+    function updateFeedbackCount() {
+        document.getElementById('feedbackCount').textContent = `Likes: ${likeCount} | Dislikes: ${dislikeCount}`;
+    }
+</script>
 </body>
 </html>
