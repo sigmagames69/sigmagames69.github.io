@@ -10,7 +10,7 @@
             color: #39FF14;
             font-family: 'Roboto', Arial, sans-serif;
         }
-        header {
+        header {a
             background-color: #1e1e1e;
             padding: 20px;
             text-align: center;
@@ -142,19 +142,18 @@
             color: #000;
         }
 
-        /* Feedback section styles */
-        .feedback-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #1e1e1e;
-            border: 2px solid #39FF14;
-            border-radius: 5px;
-            padding: 10px;
-            color: #39FF14;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
+.feedback-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Change this from right to left */
+    background-color: #1e1e1e;
+    border: 2px solid #39FF14;
+    border-radius: 5px;
+    padding: 10px;
+    color: #39FF14;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
         .feedback-button {
             background-color: #454545;
             color: #39FF14;
@@ -284,7 +283,7 @@
                     <h3>${name}</h3>
                     <p>Bookmark for ${name} game.</p>
                     <a href="${url}" target="_blank">Play Now</a>
-                    <div class="plus-sign" onclick="removeBookmark('${name}', event)"><h4>Remove</h4></div>
+                    <div class="plus-sign" onclick="removeBookmark('${name}', event)"><h4>-</h4></div>
                 </div>
             `;
             bookmarkedGamesContainer.appendChild(card);
