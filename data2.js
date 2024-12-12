@@ -212,3 +212,46 @@ const data = [
 
       { name: "Drift Hunters", url: "/drift-hunters", query: "drift hunters" },
     ];
+function createFakeAd() {
+    // Create a div element for the ad
+    const adDiv = document.createElement('div');
+    adDiv.style.position = 'fixed';
+    adDiv.style.bottom = '20px';
+    adDiv.style.right = '20px';
+    adDiv.style.width = '320px';
+    adDiv.style.padding = '15px';
+    adDiv.style.backgroundColor = '#ffffff';
+    adDiv.style.border = '2px solid #007bff';
+    adDiv.style.borderRadius = '10px';
+    adDiv.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
+    adDiv.style.zIndex = '1000';
+    adDiv.style.fontFamily = 'Arial, sans-serif';
+    adDiv.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+
+    // Add content to the ad
+    adDiv.innerHTML = `
+        <h3 style="margin: 0; font-size: 20px; color: #007bff; text-align: center;">🎉 Claim Your In-Game Rewards! 🎉</h3>
+        <p style="margin: 10px 0; font-size: 14px; text-align: center;">Play your favorite games without real ads!</p>
+        <p style="margin: 10px 0; font-size: 14px; text-align: center; font-weight: bold;">Get exclusive rewards just for playing!</p>
+        <div style="text-align: center;">
+            <button id="claimRewardBtn" style="padding: 10px 15px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin-right: 5px;">Claim Reward</button>
+            <button id="closeAdBtn" style="padding: 10px 15px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Close</button>
+        </div>
+    `;
+
+    // Append the ad to the body
+    document.body.appendChild(adDiv);
+
+    // Add event listeners for buttons
+    document.getElementById('claimRewardBtn').addEventListener('click', function() {
+        alert('Congratulations! You have successfully claimed your in-game reward!');
+        document.body.removeChild(adDiv); // Close the ad after claiming
+    });
+
+    document.getElementById('closeAdBtn').addEventListener('click', function() {
+        document.body.removeChild(adDiv); // Close the ad
+    });
+}
+
+
+createFakeAd();
