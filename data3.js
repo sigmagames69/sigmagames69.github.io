@@ -7,6 +7,13 @@ const data = [
       { name: "Drive Mad", url: "/./drive-mad/index.html", query: "drive mad" },
       { name: "Drive Mad", url: "/./drive-mad/index.html", query: "monster truck" },
 
+      { name: "Stickman hook", url: "/./stickman-hook/index.html", query: "stickman hook" },
+      { name: "Stickman hook", url: "/./stickman-hook/index.html", query: "stickman" },
+
+      { name: "1v1.lol", url: "/./1v1-lol/index.html", query: "fortnite" },
+      { name: "1v1.lol", url: "/./1v1-lol/index.html", query: "1v1 lol" },
+      { name: "1v1.lol", url: "/./1v1-lol/index.html", query: "1v1lol" },
+
       { name: "Blocky Browser", url: "/./services/browser/index.html", query: "internet" },
       { name: "Blocky Browser", url: "/./services/browser/index.html", query: "internet browser" },
       { name: "Blocky Browser", url: "/./services/browser/index.html", query: "browser" },
