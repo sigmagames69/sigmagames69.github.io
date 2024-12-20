@@ -1,8 +1,8 @@
 document.body.style.overflowX = 'hidden';
 
 const data = [
-      { name: "Sigma games", url: "/.https://sigmagames69.github.io/index.html", query: "home" },
-      { name: "Sigma games", url: "/.https://sigmagames69.github.io/index.html", query: "sigma games" },
+      { name: "Sigma games", url: "https://sigmagames69.github.io", query: "home" },
+      { name: "Sigma games", url: "https://sigmagames69.github.io", query: "sigma games" },
         
       { name: "Drive Mad", url: "/./drive-mad/index.html", query: "drive mad" },
       { name: "Drive Mad", url: "/./drive-mad/index.html", query: "monster truck" },
