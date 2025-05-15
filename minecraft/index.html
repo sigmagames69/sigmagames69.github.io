@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/img/favicon.png">
     <title>Minecraft</title>
     <style>
-        
         body {
             font-family: Arial, sans-serif;
             background-color: #121212;
@@ -21,7 +19,6 @@
             width: 100vw;
             overflow-x: auto;
         }
-
         header {
             background-color: #1e1e1e;
             padding: 20px;
@@ -30,13 +27,11 @@
             border-bottom: 2px solid #39FF14;
             width: 100%;
         }
-
         .search-container {
             position: relative;
             width: 500px;
             margin: 10px auto;
         }
-
         .search-bar {
             width: 100%;
             padding: 10px;
@@ -45,12 +40,10 @@
             background-color: #1e1e1e;
             color: #39FF14;
         }
-
         .search-bar:focus {
             outline: none;
             border: 2px solid #55ff33;
         }
-
         .results-container {
             position: absolute;
             top: 100%;
@@ -66,44 +59,38 @@
             max-height: 200px;
             overflow-y: auto;
         }
-
         .result-item {
             padding: 10px;
             cursor: pointer;
             border-bottom: 1px solid #ccc;
         }
-
         .result-item:hover {
             background-color: #e0e0e0;
         }
-
-        #Iframe {
-            width: 80%;
-            height: 80vh;
-            border: 10px solid grey;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-
-        .button-bar {
+        .button-container {
             display: flex;
-            justify-content: center;
-            padding: 10px;
-            background-color: grey;
-            border-radius: 5px;
-            width: 80%;
+            gap: 20px;
+            margin-top: 30px;
         }
-
-        .button-bar img {
-            width: 40px;
-            height: 40px;
+        .custom-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: 2px solid #39FF14;
+            background-color: #1e1e1e;
+            color: #39FF14;
+            border-radius: 8px;
             cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .custom-button:hover {
+            background-color: #39FF14;
+            color: #1e1e1e;
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
-
     <header>
         <h1>Minecraft</h1>
         <div class="search-container">
@@ -111,16 +98,18 @@
             <div class="results-container" id="resultsContainer"></div>
         </div>
     </header>
-
-    <iframe id="Iframe" src="https://incrediblewebsite.github.io/minecraftclassic/" title="minecraft" allowfullscreen></iframe>
-
-    <div class="button-bar">
-        <img src="https://sigmagames69.github.io/img/full.png" onclick="makeFullscreen()" alt="Fullscreen Icon" title="Click to enter fullscreen mode">
+<br>
+    <div class="button-container">
+        <a href="1.8.html" target="_blank" class="custom-button">Minecraft 1.8 wasm</a>
+        <a href="1.12.html" target="_blank" class="custom-button">Minecraft 1.12 wasm</a>
     </div>
-<br><br>
+<br>
+    <div class="button-container">
+        <a href="1.8 js.html" target="_blank" class="custom-button">Minecraft 1.8 js</a>
+        <a href="1.12 js.html" target="_blank" class="custom-button">Minecraft 1.12 js</a>
+    </div>
     <script src="/data2.js"></script>
     <script>
-
         function handleSearch() {
             const input = document.getElementById('searchBar').value.toLowerCase();
             const resultsContainer = document.getElementById('resultsContainer');
@@ -146,21 +135,6 @@
                 resultsContainer.style.display = 'none';
             }
         }
-
-        function makeFullscreen() {
-            const iframe = document.getElementById('Iframe');
-
-            if (iframe.requestFullscreen) {
-                iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) {
-                iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) {
-                iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) {
-                iframe.msRequestFullscreen();
-            }
-        }
     </script>
-
 </body>
 </html>
