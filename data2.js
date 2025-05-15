@@ -3,6 +3,9 @@ document.body.style.overflowX = 'hidden';
 const data = [
       { name: "Home", url: "https://sigmagames69.github.io", query: "home" },
       { name: "Home", url: "https://sigmagames69.github.io", query: "back" },
+      
+      { name: "Minecraft", url: "minecraft", query: "minecraft" },
+      { name: "Minecraft", url: "minecraft", query: "eaglercraft" },
         
       { name: "Drive Mad", url: "/drive-mad", query: "drive mad" },
       { name: "Drive Mad", url: "/drive-mad", query: "monster truck" },
