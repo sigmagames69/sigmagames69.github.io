@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://sigmagames69.github.io/img/favicon.png">
-    <title>MP3 Audio Bass Booster</title>
+    <title>Enhanced Audio Bass Booster</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,44 +15,214 @@
         input, button {
             margin: 10px 0;
         }
+        .control-group {
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .control-group h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+        }
+        .slider-container label {
+            min-width: 120px;
+            font-weight: bold;
+        }
+        .slider-container input[type="range"] {
+            flex: 1;
+        }
+        .value-display {
+            min-width: 60px;
+            text-align: right;
+            font-weight: bold;
+            color: #666;
+        }
+        .file-info {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #4CAF50;
+            width: 0%;
+            transition: width 0.1s;
+        }
     </style>
 </head>
 <body>
-    <h1>MP3 Audio Bass Booster</h1>
-    <input type="file" id="audioFile" accept="audio/mp3">
+    <h1>Enhanced Audio Bass Booster</h1>
+    <input type="file" id="audioFile" accept="audio/mp3,audio/wav,audio/ogg,audio/flac">
+    <div id="fileInfo" class="file-info" style="display: none;"></div>
+    
     <br>
     <button id="playButton" disabled>Play</button>
+    <button id="pauseButton" disabled>Pause</button>
     <button id="stopButton" disabled>Stop</button>
-    <button id="downloadButton" disabled>Download Boosted Audio</button>
-    <br>
-    <label for="bassBoost">Bass Boost:</label>
-    <input type="range" id="bassBoost" min="0" max="150" value="0" step="1">
-    <span id="bassBoostValue">0 dB</span>
+    <button id="downloadButton" disabled>Download Enhanced Audio</button>
+    
+    <div class="progress-bar" style="display: none;" id="progressContainer">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="control-group">
+        <h3>Bass Enhancement</h3>
+        <div class="slider-container">
+            <label for="bassBoost">Bass Boost:</label>
+            <input type="range" id="bassBoost" min="0" max="150" value="0" step="1">
+            <span class="value-display" id="bassBoostValue">0 dB</span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <h3>Volume & Dynamics</h3>
+        <div class="slider-container">
+            <label for="volume">Master Volume:</label>
+            <input type="range" id="volume" min="0" max="1000" value="100" step="1">
+            <span class="value-display" id="volumeValue">100%</span>
+        </div>
+        <div class="slider-container">
+            <label for="compressor">Compressor:</label>
+            <input type="range" id="compressor" min="0" max="20" value="0" step="0.5">
+            <span class="value-display" id="compressorValue">0 dB</span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <h3>EQ Settings</h3>
+        <div class="slider-container">
+            <label for="treble">Treble:</label>
+            <input type="range" id="treble" min="-20" max="20" value="0" step="1">
+            <span class="value-display" id="trebleValue">0 dB</span>
+        </div>
+        <div class="slider-container">
+            <label for="midrange">Midrange:</label>
+            <input type="range" id="midrange" min="-20" max="20" value="0" step="1">
+            <span class="value-display" id="midrangeValue">0 dB</span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <h3>Audio Effects</h3>
+        <div class="slider-container">
+            <label for="reverb">Reverb:</label>
+            <input type="range" id="reverb" min="0" max="100" value="0" step="1">
+            <span class="value-display" id="reverbValue">0%</span>
+        </div>
+        <div class="slider-container">
+            <label for="delay">Echo Delay:</label>
+            <input type="range" id="delay" min="0" max="1000" value="0" step="10">
+            <span class="value-display" id="delayValue">0 ms</span>
+        </div>
+        <div class="slider-container">
+            <label for="distortion">Distortion:</label>
+            <input type="range" id="distortion" min="0" max="100" value="0" step="1">
+            <span class="value-display" id="distortionValue">0%</span>
+        </div>
+    </div>
 
     <script>
 let audioContext;
 let source;
 let gainNode;
-let biquadFilter;
+let bassFilter;
+let trebleFilter;
+let midrangeFilter;
+let compressor;
+let convolver;
+let delayNode;
+let delayGain;
+let distortionGain;
+let waveShaperNode;
 let audioBuffer;
+let isPlaying = false;
+let isPaused = false;
+let startTime = 0;
+let pauseTime = 0;
 
 const audioFileInput = document.getElementById('audioFile');
 const playButton = document.getElementById('playButton');
+const pauseButton = document.getElementById('pauseButton');
 const stopButton = document.getElementById('stopButton');
 const downloadButton = document.getElementById('downloadButton');
-const bassBoostSlider = document.getElementById('bassBoost');
-const bassBoostValue = document.getElementById('bassBoostValue');
+const fileInfo = document.getElementById('fileInfo');
+const progressContainer = document.getElementById('progressContainer');
+const progressFill = document.getElementById('progressFill');
 
+// Control elements
+const controls = {
+    bassBoost: document.getElementById('bassBoost'),
+    volume: document.getElementById('volume'),
+    compressor: document.getElementById('compressor'),
+    treble: document.getElementById('treble'),
+    midrange: document.getElementById('midrange'),
+    reverb: document.getElementById('reverb'),
+    delay: document.getElementById('delay'),
+    distortion: document.getElementById('distortion')
+};
+
+// Value display elements
+const valueDisplays = {
+    bassBoost: document.getElementById('bassBoostValue'),
+    volume: document.getElementById('volumeValue'),
+    compressor: document.getElementById('compressorValue'),
+    treble: document.getElementById('trebleValue'),
+    midrange: document.getElementById('midrangeValue'),
+    reverb: document.getElementById('reverbValue'),
+    delay: document.getElementById('delayValue'),
+    distortion: document.getElementById('distortionValue')
+};
+
+// Event listeners
 audioFileInput.addEventListener('change', handleFileSelect);
 playButton.addEventListener('click', playAudio);
+pauseButton.addEventListener('click', pauseAudio);
 stopButton.addEventListener('click', stopAudio);
-downloadButton.addEventListener('click', downloadBoostedAudio);
-bassBoostSlider.addEventListener('input', updateBassBoost);
+downloadButton.addEventListener('click', downloadEnhancedAudio);
+
+// Control event listeners
+Object.keys(controls).forEach(key => {
+    controls[key].addEventListener('input', () => updateControl(key));
+});
 
 function handleFileSelect(event) {
     const file = event.target.files[0];
-    playButton.disabled = !file;
-    downloadButton.disabled = !file;
+    if (file) {
+        displayFileInfo(file);
+        playButton.disabled = false;
+        downloadButton.disabled = false;
+    } else {
+        fileInfo.style.display = 'none';
+        playButton.disabled = true;
+        downloadButton.disabled = true;
+    }
+}
+
+function displayFileInfo(file) {
+    const fileSize = (file.size / (1024 * 1024)).toFixed(2);
+    const fileType = file.type || 'Unknown';
+    fileInfo.innerHTML = `
+        <strong>File:</strong> ${file.name}<br>
+        <strong>Size:</strong> ${fileSize} MB<br>
+        <strong>Type:</strong> ${fileType}
+    `;
+    fileInfo.style.display = 'block';
 }
 
 async function playAudio() {
@@ -63,50 +233,242 @@ async function playAudio() {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
     }
 
-    if (source) {
+    if (source && !isPaused) {
         source.stop();
     }
 
-    const arrayBuffer = await file.arrayBuffer();
-    audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+    if (!isPaused) {
+        const arrayBuffer = await file.arrayBuffer();
+        audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+        startTime = audioContext.currentTime;
+    } else {
+        startTime = audioContext.currentTime - pauseTime;
+    }
 
-    source = audioContext.createBufferSource();
-    source.buffer = audioBuffer;
+    setupAudioChain();
+    
+    if (isPaused) {
+        source.start(0, pauseTime);
+    } else {
+        source.start(0);
+    }
 
-    biquadFilter = audioContext.createBiquadFilter();
-    biquadFilter.type = 'lowshelf';
-    biquadFilter.frequency.value = 200;
-    biquadFilter.gain.value = bassBoostSlider.value;
-
-    gainNode = audioContext.createGain();
-    gainNode.gain.value = 1;
-
-    source.connect(biquadFilter);
-    biquadFilter.connect(gainNode);
-    gainNode.connect(audioContext.destination);
-
-    source.start(0);
+    isPlaying = true;
+    isPaused = false;
     playButton.disabled = true;
+    pauseButton.disabled = false;
     stopButton.disabled = false;
+    
+    progressContainer.style.display = 'block';
+    updateProgress();
+}
+
+function pauseAudio() {
+    if (source && isPlaying) {
+        pauseTime = audioContext.currentTime - startTime;
+        source.stop();
+        isPlaying = false;
+        isPaused = true;
+        playButton.disabled = false;
+        pauseButton.disabled = true;
+    }
 }
 
 function stopAudio() {
     if (source) {
         source.stop();
+        isPlaying = false;
+        isPaused = false;
+        pauseTime = 0;
         playButton.disabled = false;
+        pauseButton.disabled = true;
         stopButton.disabled = true;
+        progressContainer.style.display = 'none';
+        progressFill.style.width = '0%';
     }
 }
 
-function updateBassBoost() {
-    const boostValue = bassBoostSlider.value;
-    bassBoostValue.textContent = `${boostValue} dB`;
-    if (biquadFilter) {
-        biquadFilter.gain.value = boostValue;
+function setupAudioChain() {
+    source = audioContext.createBufferSource();
+    source.buffer = audioBuffer;
+
+    // Bass filter (lowshelf)
+    bassFilter = audioContext.createBiquadFilter();
+    bassFilter.type = 'lowshelf';
+    bassFilter.frequency.value = 200;
+    bassFilter.gain.value = controls.bassBoost.value;
+
+    // Treble filter (highshelf)
+    trebleFilter = audioContext.createBiquadFilter();
+    trebleFilter.type = 'highshelf';
+    trebleFilter.frequency.value = 4000;
+    trebleFilter.gain.value = controls.treble.value;
+
+    // Midrange filter (peaking)
+    midrangeFilter = audioContext.createBiquadFilter();
+    midrangeFilter.type = 'peaking';
+    midrangeFilter.frequency.value = 1000;
+    midrangeFilter.Q.value = 1;
+    midrangeFilter.gain.value = controls.midrange.value;
+
+    // Compressor
+    compressor = audioContext.createDynamicsCompressor();
+    compressor.threshold.value = -24;
+    compressor.knee.value = 30;
+    compressor.ratio.value = 12;
+    compressor.attack.value = 0.003;
+    compressor.release.value = 0.25;
+
+    // Distortion
+    waveShaperNode = audioContext.createWaveShaper();
+    updateDistortion();
+
+    // Delay
+    delayNode = audioContext.createDelay(1.0);
+    delayGain = audioContext.createGain();
+    updateDelay();
+
+    // Reverb
+    convolver = audioContext.createConvolver();
+    updateReverb();
+
+    // Master gain
+    gainNode = audioContext.createGain();
+    gainNode.gain.value = controls.volume.value / 100;
+
+    // Distortion gain for mixing
+    distortionGain = audioContext.createGain();
+    distortionGain.gain.value = controls.distortion.value / 100;
+
+    // Connect audio chain
+    source.connect(bassFilter);
+    bassFilter.connect(trebleFilter);
+    trebleFilter.connect(midrangeFilter);
+    midrangeFilter.connect(compressor);
+    
+    // Distortion branch
+    compressor.connect(waveShaperNode);
+    waveShaperNode.connect(distortionGain);
+    
+    // Clean branch
+    compressor.connect(delayNode);
+    delayNode.connect(delayGain);
+    delayGain.connect(delayNode);
+    
+    // Mix distortion and clean signal
+    compressor.connect(gainNode);
+    distortionGain.connect(gainNode);
+    delayNode.connect(gainNode);
+    
+    gainNode.connect(convolver);
+    convolver.connect(audioContext.destination);
+    gainNode.connect(audioContext.destination);
+
+    source.onended = () => {
+        if (isPlaying) stopAudio();
+    };
+}
+
+function updateControl(controlName) {
+    const value = controls[controlName].value;
+    const display = valueDisplays[controlName];
+    
+    switch(controlName) {
+        case 'bassBoost':
+            display.textContent = `${value} dB`;
+            if (bassFilter) bassFilter.gain.value = value;
+            break;
+        case 'volume':
+            display.textContent = `${value}%`;
+            if (gainNode) gainNode.gain.value = value / 100;
+            break;
+        case 'compressor':
+            display.textContent = `${value} dB`;
+            if (compressor) compressor.threshold.value = -24 + parseFloat(value);
+            break;
+        case 'treble':
+            display.textContent = `${value} dB`;
+            if (trebleFilter) trebleFilter.gain.value = value;
+            break;
+        case 'midrange':
+            display.textContent = `${value} dB`;
+            if (midrangeFilter) midrangeFilter.gain.value = value;
+            break;
+        case 'reverb':
+            display.textContent = `${value}%`;
+            updateReverb();
+            break;
+        case 'delay':
+            display.textContent = `${value} ms`;
+            updateDelay();
+            break;
+        case 'distortion':
+            display.textContent = `${value}%`;
+            updateDistortion();
+            break;
     }
 }
 
-async function downloadBoostedAudio() {
+function updateReverb() {
+    if (!convolver) return;
+    
+    const reverbAmount = controls.reverb.value / 100;
+    if (reverbAmount > 0) {
+        const sampleRate = audioContext.sampleRate;
+        const length = sampleRate * 2; // 2 second reverb
+        const impulse = audioContext.createBuffer(2, length, sampleRate);
+        
+        for (let channel = 0; channel < 2; channel++) {
+            const channelData = impulse.getChannelData(channel);
+            for (let i = 0; i < length; i++) {
+                const decay = Math.pow(1 - i / length, 2);
+                channelData[i] = (Math.random() * 2 - 1) * decay * reverbAmount;
+            }
+        }
+        convolver.buffer = impulse;
+    }
+}
+
+function updateDelay() {
+    if (!delayNode || !delayGain) return;
+    
+    const delayTime = controls.delay.value / 1000;
+    delayNode.delayTime.value = delayTime;
+    delayGain.gain.value = delayTime > 0 ? 0.3 : 0;
+}
+
+function updateDistortion() {
+    if (!waveShaperNode || !distortionGain) return;
+    
+    const amount = controls.distortion.value;
+    const samples = 44100;
+    const curve = new Float32Array(samples);
+    const deg = Math.PI / 180;
+    
+    for (let i = 0; i < samples; i++) {
+        const x = (i * 2) / samples - 1;
+        curve[i] = ((3 + amount) * x * 20 * deg) / (Math.PI + amount * Math.abs(x));
+    }
+    
+    waveShaperNode.curve = curve;
+    if (distortionGain) distortionGain.gain.value = amount / 100;
+}
+
+function updateProgress() {
+    if (!isPlaying || !audioBuffer) return;
+    
+    const elapsed = audioContext.currentTime - startTime;
+    const duration = audioBuffer.duration;
+    const progress = Math.min(elapsed / duration * 100, 100);
+    
+    progressFill.style.width = `${progress}%`;
+    
+    if (progress < 100 && isPlaying) {
+        requestAnimationFrame(updateProgress);
+    }
+}
+
+async function downloadEnhancedAudio() {
     if (!audioBuffer) return;
 
     const offlineContext = new OfflineAudioContext(
@@ -115,21 +477,43 @@ async function downloadBoostedAudio() {
         audioBuffer.sampleRate
     );
 
+    // Recreate the audio chain for offline rendering
     const source = offlineContext.createBufferSource();
     source.buffer = audioBuffer;
 
-    const biquadFilter = offlineContext.createBiquadFilter();
-    biquadFilter.type = 'lowshelf';
-    biquadFilter.frequency.value = 200;
-    biquadFilter.gain.value = bassBoostSlider.value;
+    const bassFilter = offlineContext.createBiquadFilter();
+    bassFilter.type = 'lowshelf';
+    bassFilter.frequency.value = 200;
+    bassFilter.gain.value = controls.bassBoost.value;
 
-    source.connect(biquadFilter);
-    biquadFilter.connect(offlineContext.destination);
+    const trebleFilter = offlineContext.createBiquadFilter();
+    trebleFilter.type = 'highshelf';
+    trebleFilter.frequency.value = 4000;
+    trebleFilter.gain.value = controls.treble.value;
+
+    const midrangeFilter = offlineContext.createBiquadFilter();
+    midrangeFilter.type = 'peaking';
+    midrangeFilter.frequency.value = 1000;
+    midrangeFilter.Q.value = 1;
+    midrangeFilter.gain.value = controls.midrange.value;
+
+    const compressor = offlineContext.createDynamicsCompressor();
+    compressor.threshold.value = -24 + parseFloat(controls.compressor.value);
+
+    const gainNode = offlineContext.createGain();
+    gainNode.gain.value = controls.volume.value / 100;
+
+    // Simple chain for offline rendering
+    source.connect(bassFilter);
+    bassFilter.connect(trebleFilter);
+    trebleFilter.connect(midrangeFilter);
+    midrangeFilter.connect(compressor);
+    compressor.connect(gainNode);
+    gainNode.connect(offlineContext.destination);
 
     source.start(0);
 
     const renderedBuffer = await offlineContext.startRendering();
-
     const wav = audioBufferToWav(renderedBuffer);
     const blob = new Blob([wav], { type: 'audio/wav' });
 
@@ -137,7 +521,7 @@ async function downloadBoostedAudio() {
     const a = document.createElement('a');
     a.style.display = 'none';
     a.href = url;
-    a.download = 'boosted_audio.wav';
+    a.download = 'enhanced_audio.wav';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -198,6 +582,11 @@ function writeString(view, offset, string) {
         view.setUint8(offset + i, string.charCodeAt(i));
     }
 }
+
+// Initialize value displays
+Object.keys(controls).forEach(key => {
+    updateControl(key);
+});
 
 </script>
 </body>
