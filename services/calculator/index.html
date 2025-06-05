@@ -8,7 +8,7 @@
     <style>
         body {
             background-color: #000;
-            color: #fff;
+            color: #39ff14;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,38 +18,94 @@
         }
 
         table {
-            border: 2px solid #fff;
+            border: 2px solid #39ff14;
             border-collapse: collapse;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            padding: 5px;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+            padding: 10px;
+            background-color: #111;
+            border-radius: 10px;
         }
 
         input[type="button"] {
             width: 100%;
             padding: 20px;
-            background-color: #007BFF;
-            color: #fff;
+            background-color: #39ff14;
+            color: #000;
             font-size: 24px;
             font-weight: bold;
-            border: 2px solid #000;
-            border-radius: 5px;
+            border: 2px solid #39ff14;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            margin: 2px;
         }
 
         input[type="button"]:hover {
-            background-color: blue;
+            background-color: #2dd611;
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+            transform: translateY(-1px);
+        }
+
+        input[type="button"]:active {
+            transform: translateY(0);
+            box-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+        }
+
+        /* Special styling for operator buttons */
+        input[type="button"][value="÷"],
+        input[type="button"][value="×"],
+        input[type="button"][value="-"],
+        input[type="button"][value="+"],
+        input[type="button"][value="="] {
+            background-color: #2a8f0f;
+            color: #39ff14;
+        }
+
+        input[type="button"][value="÷"]:hover,
+        input[type="button"][value="×"]:hover,
+        input[type="button"][value="-"]:hover,
+        input[type="button"][value="+"]:hover,
+        input[type="button"][value="="]:hover {
+            background-color: #1f6b0b;
+            color: #39ff14;
+        }
+
+        /* Special styling for clear button */
+        input[type="button"][value="C"] {
+            background-color: #ff1439;
+            color: #fff;
+        }
+
+        input[type="button"][value="C"]:hover {
+            background-color: #d6112e;
         }
 
         input[type="text"] {
             padding: 20px;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
-            border: 2px solid #000;
-            border-radius: 5px;
-            width: calc(100% - 42px);
-            background-color: #fff;
-            color: #000;
+            border: 2px solid #39ff14;
+            border-radius: 8px;
+            width: calc(100% - 44px);
+            background-color: #000;
+            color: #39ff14;
+            text-align: right;
+            margin: 5px;
+            box-shadow: inset 0 0 10px rgba(57, 255, 20, 0.1);
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        /* Equals button spanning multiple columns */
+        .equals-btn {
+            width: 200%;
         }
     </style>
 </head>
@@ -66,9 +122,9 @@
             <td><input type="button" value="÷" onclick="appendValue('/')" /></td>
         </tr>
         <tr>
-            <td><input type="button" value="1" onclick="appendValue('1')" /></td>
-            <td><input type="button" value="2" onclick="appendValue('2')" /></td>
-            <td><input type="button" value="3" onclick="appendValue('3')" /></td>
+            <td><input type="button" value="7" onclick="appendValue('7')" /></td>
+            <td><input type="button" value="8" onclick="appendValue('8')" /></td>
+            <td><input type="button" value="9" onclick="appendValue('9')" /></td>
             <td><input type="button" value="×" onclick="appendValue('*')" /></td>
         </tr>
         <tr>
@@ -78,9 +134,9 @@
             <td><input type="button" value="-" onclick="appendValue('-')" /></td>
         </tr>
         <tr>
-            <td><input type="button" value="7" onclick="appendValue('7')" /></td>
-            <td><input type="button" value="8" onclick="appendValue('8')" /></td>
-            <td><input type="button" value="9" onclick="appendValue('9')" /></td>
+            <td><input type="button" value="1" onclick="appendValue('1')" /></td>
+            <td><input type="button" value="2" onclick="appendValue('2')" /></td>
+            <td><input type="button" value="3" onclick="appendValue('3')" /></td>
             <td><input type="button" value="+" onclick="appendValue('+')" /></td>
         </tr>
         <tr>
@@ -89,10 +145,8 @@
             <td><input type="button" value="(" onclick="appendValue('(')" /></td>
             <td><input type="button" value=")" onclick="appendValue(')')" /></td>
         </tr>
-        <center>
         <tr>
-            <td colspan="3"><input style="margin-left: 25%;" type="button" value="=" onclick="calculate()" /></td>
-        </center>
+            <td colspan="4"><input type="button" value="=" onclick="calculate()" style="width: 100%;" /></td>
         </tr>
     </table>
 
@@ -120,16 +174,38 @@
         }
 
         // Allow keyboard input
-        document.getElementById("calculator").addEventListener("keyup", function (event) {
+        document.addEventListener("keydown", function (event) {
             const key = event.key;
-            if ("0123456789+-×÷√^()".includes(key)) {
-                appendValue(key.replace('×', '*').replace('÷', '/').replace('^', '^'));
-            } else if (event.key === "Enter") {
+            if ("0123456789".includes(key)) {
+                appendValue(key);
+            } else if (key === "+") {
+                appendValue('+');
+            } else if (key === "-") {
+                appendValue('-');
+            } else if (key === "*") {
+                appendValue('*');
+            } else if (key === "/") {
+                event.preventDefault(); // Prevent browser search
+                appendValue('/');
+            } else if (key === ".") {
+                appendValue('.');
+            } else if (key === "(" || key === ")") {
+                appendValue(key);
+            } else if (key === "Enter") {
+                event.preventDefault();
                 calculate();
-            } else if (event.key === "Escape") {
+            } else if (key === "Escape" || key === "Delete") {
                 clearResult();
+            } else if (key === "Backspace") {
+                const display = document.getElementById("result");
+                display.value = display.value.slice(0, -1);
             }
         });
+
+        // Focus on the calculator when page loads
+        window.onload = function() {
+            document.getElementById("result").focus();
+        };
     </script>
 </body>
 
