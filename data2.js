@@ -3,10 +3,21 @@ document.body.style.overflowX = 'hidden';
 const data = [
       { name: "Home", url: "https://sigmagames69.github.io", query: "home" },
       { name: "Home", url: "https://sigmagames69.github.io", query: "back" },
+      { name: "Home", url: "https://sigmagames69.github.io", query: "sigma games" },
+      { name: "Home", url: "https://sigmagames69.github.io", query: "sigmagames69.github.io" },
+      { name: "Home", url: "https://sigmagames69.github.io", query: "sigma games 69" },
+      { name: "Home", url: "https://sigmagames69.github.io", query: "sigmagames69 github io" },
+      { name: "Home", url: "https://sigmagames69.github.io", query: "sigmagames github" },
+      { name: "Home", url: "https://sigmagames69.github.io", query: "sigmagames69 github" },
+
+      { name: "GameVault", url: "https://joercat.github.io/gamevault", query: "new site" },
+      { name: "GameVault", url: "https://joercat.github.io/gamevault", query: "new" },
+      { name: "GameVault", url: "https://joercat.github.io/gamevault", query: "gamevault" },
+      { name: "GameVault", url: "https://joercat.github.io/gamevault", query: "game vault" },
       
       { name: "Minecraft", url: "minecraft", query: "minecraft" },
       { name: "Minecraft", url: "minecraft", query: "eaglercraft" },
-        
+  
       { name: "Drive Mad", url: "/drive-mad", query: "drive mad" },
       { name: "Drive Mad", url: "/drive-mad", query: "monster truck" },
 
@@ -21,6 +32,9 @@ const data = [
       { name: "Calculator", url: "/services/calculator", query: "math" },
       { name: "Calculator", url: "/services/calculator", query: "calculator" },
 
+      { name: "Chatroom", url: "/services/chat", query: "chat" },
+      { name: "Chatroom", url: "/services/chat", query: "chatroom" },
+      
       { name: "Deal or no Deal", url: "/deal-or-no-deal", query: "deal" },
       { name: "Deal or no Deal", url: "/deal-or-no-deal", query: "deal or no deal" },
 
